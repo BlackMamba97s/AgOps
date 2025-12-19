@@ -1,0 +1,11 @@
+[
+    {
+      "input": "Come posso vedere lo stato dei pod nel namespace 'monitoring'?",
+      "expected_output": "Puoi usare il comando `kubectl get pods -n monitoring` per visualizzare lo stato dei pod nel namespace 'monitoring'."
+    },
+    {
+      "input": "Come si crea un ConfigMap da un file in Kubernetes?",
+      "expected_output": "Puoi creare una ConfigMap da un file usando il comando `kubectl create configmap <nome-configmap> --from-file=<path-al-file>`."
+    }
+]
+  

@@ -1,0 +1,13 @@
+.MuiInputBase-root {
+    background-color: #FFFFFF !important;
+    border: 1px solid black;
+    border-radius: 25px !important
+}
+
+.watermark {
+    display: none !important;
+} 
+
+.MuiFormControl-root {
+    background-color: #FFFFFF !important;
+}
