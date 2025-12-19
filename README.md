@@ -10,8 +10,10 @@ K8S ClusterVigil is an event-aware chatbot capable of answering any questions wi
 - Manual login to the cluster
 - Installing the dependencies
 ```
+# Use the `-r` flag (without it pip will try to install a package literally
+# named "requirements.txt" and fail):
 pip install -r requirements.txt
-``` 
+```
 ## Create the vector DB
 ```
 cd src/
@@ -22,4 +24,43 @@ python embed_all.py
 ```
 cd src/
 chainlit run cl-async.py
+```
+
+## Inspect Langfuse traces locally
+The repository includes a small CLI helper for listing Langfuse traces and spotting repeated patterns.
+
+1. Install dependencies (the `langfuse` SDK lives in `requirements.txt`):
+   ```bash
+   pip install -r requirements.txt
+   ```
+2. Export your Langfuse credentials (you can also pass them via flags):
+   ```bash
+   export LANGFUSE_HOST="https://your-langfuse-host"
+   export LANGFUSE_PUBLIC_KEY="pk_..."
+   export LANGFUSE_SECRET_KEY="sk_..."
+   ```
+3. Run the script from the repo root to fetch and print traces (you can also filter by environment, user, or trace name):
+   ```bash
+   python -m src.utils.langfuse_traces \
+     --limit 20 --pattern error --environment production --show-io \
+     --order-by timestamp.desc
+   ```
+   The `--order-by` flag must follow Langfuse's `[field].[ASC|DESC]` format (for example `timestamp.desc` or `name.ASC`). If you see a 400 error mentioning `orderBy.order`, double-check the casing and separator.
+
+#### Parameter guide (pick only what you need)
+- **Required connection**: `--host`, `--public-key`, and `--secret-key` (or the corresponding `LANGFUSE_*` env vars). These point the script to your Langfuse project and must match the project where traces are generated.
+- **Limit**: `--limit 50` controls how many recent traces are fetched (defaults to 50). Raise it if you suspect older traces.
+- **Ordering**: `--order-by timestamp.desc` is the default. Use `timestamp.asc` to read from oldest to newest.
+- **Environment filter**: `--environment production` only shows traces tagged with that environment. Omit to see every environment.
+- **User filter**: `--user-id <USER_ID>` limits results to a specific user in Langfuse.
+- **Trace-name filter**: `--name <TRACE_NAME>` filters exact trace names (useful if you know the pipeline name shown in Langfuse).
+- **Pattern search**: `--pattern error` performs a substring match over trace name, input, and output payloads for quick pattern recognition.
+- **IO printing**: add `--show-io` to include inputs/outputs in the listing; omit for a concise view.
+
+If you see `No traces found with the given parameters`, try removing filters (environment, user, name, pattern) and increasing `--limit` to broaden the query. Also confirm the host and keys point to the same Langfuse project you view in the UI.
+
+### Quick test
+To confirm the script is syntactically valid without hitting Langfuse, run:
+```bash
+python -m compileall src/utils/langfuse_traces.py
 ```
