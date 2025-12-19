@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: prompt-pvc-###PVCNAMEID###
+  namespace: ###NAMESPACE###
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: ###STORAGESIZE###
+  storageClassName: default

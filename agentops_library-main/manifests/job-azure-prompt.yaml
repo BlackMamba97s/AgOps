@@ -1,0 +1,27 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: prompt-job
+  namespace: ###NAMESPACE###
+spec:
+  template:
+    spec:
+      containers:
+      - name: git-clone-and-copy
+        image: alpine/git  # o un'immagine più completa se ti serve bash o cp -r avanzato
+        command: ["/bin/sh", "-c"]
+        args:
+          - |
+            mkdir -p /tmp/repo && git clone ###REPO### /tmp/repo && cd /tmp/repo && git checkout ###VERSION### &&
+            cp -r /tmp/repo/prompt/. /mnt/prompt/ &&
+            
+            echo "Dati selezionati copiati con successo"
+        volumeMounts:
+        - name: prompt-volume
+          mountPath: /mnt/prompt
+      restartPolicy: Never
+      volumes:
+      - name: prompt-volume
+        persistentVolumeClaim:
+          claimName: prompt-pvc-###PVCNAMEID###
+  backoffLimit: 3

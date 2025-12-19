@@ -1,0 +1,55 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: rag-job
+  namespace: ###NAMESPACE###
+spec:
+  template:
+    spec:
+      containers:
+      - name: azure-container
+        image: mcr.microsoft.com/azure-cli:2.56.0
+        command: ["/bin/sh", "-c"]
+        args:
+          - |    
+            az login --service-principal -u ${AZURE_CLIENT_ID} -p ${AZURE_CLIENT_SECRET} -t ${AZURE_TENANT_ID} && 
+            az account set --subscription ${AZURE_SUBSCRIPTION_ID} &&
+            az storage blob download-batch --account-name ${AZURE_STORAGE_ACCOUNT} --destination /mnt/rag --source "###CONTAINER###" --pattern "###DIR###/*" &&
+            az logout &&
+            echo "Dati copiati con successo"
+
+        env:
+        - name: AZURE_CLIENT_ID
+          valueFrom:
+            secretKeyRef:
+              name: azure-blob-secret
+              key: AZURE_CLIENT_ID
+        - name: AZURE_CLIENT_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: azure-blob-secret
+              key: AZURE_CLIENT_SECRET
+        - name: AZURE_TENANT_ID
+          valueFrom:
+            secretKeyRef:
+              name: azure-blob-secret
+              key: AZURE_TENANT_ID
+        - name: AZURE_SUBSCRIPTION_ID
+          valueFrom:
+            secretKeyRef:
+              name: azure-blob-secret
+              key: AZURE_SUBSCRIPTION_ID
+        - name: AZURE_STORAGE_ACCOUNT
+          valueFrom:
+            secretKeyRef:
+              name: azure-blob-secret
+              key: AZURE_STORAGE_ACCOUNT
+        volumeMounts:
+        - name: rag-volume
+          mountPath: /mnt/rag
+      restartPolicy: Never
+      volumes:
+      - name: rag-volume
+        persistentVolumeClaim:
+          claimName: ###PVCNAMEID###
+  backoffLimit: 3
