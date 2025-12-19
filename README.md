@@ -64,3 +64,23 @@ To confirm the script is syntactically valid without hitting Langfuse, run:
 ```bash
 python -m compileall src/utils/langfuse_traces.py
 ```
+
+#### Alternate trace browser focused on metadata
+If the main helper returns no results, try the alternate script that mirrors the approach used in `agentops_library-main/evaluation/test_old.py` (it calls `langfuse.api.trace.list` directly and filters client-side):
+
+```bash
+python -m src.utils.langfuse_trace_browser \
+  --host https://your-langfuse-host \
+  --public-key pk_... \
+  --secret-key sk_... \
+  --limit 50 \
+  --metadata-key request_name \
+  --metadata-value "<the value shown in Langfuse>" \
+  --since-hours 24 \
+  --show-metadata
+```
+
+- `--metadata-key/--metadata-value` lets you match the exact metadata pair you see in Langfuse (for example, `request_name`).
+- `--pattern error` performs a substring search across name/input/output/metadata.
+- `--since-hours 24` keeps only traces from the last 24 hours (drop it to scan everything in the fetched batch).
+- The script prints how many traces came back from the API before filtering so you can quickly tell whether the credentials/host are working.
