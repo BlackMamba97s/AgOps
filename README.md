@@ -47,6 +47,18 @@ The repository includes a small CLI helper for listing Langfuse traces and spott
    ```
    The `--order-by` flag must follow Langfuse's `[field].[ASC|DESC]` format (for example `timestamp.desc` or `name.ASC`). If you see a 400 error mentioning `orderBy.order`, double-check the casing and separator.
 
+#### Parameter guide (pick only what you need)
+- **Required connection**: `--host`, `--public-key`, and `--secret-key` (or the corresponding `LANGFUSE_*` env vars). These point the script to your Langfuse project and must match the project where traces are generated.
+- **Limit**: `--limit 50` controls how many recent traces are fetched (defaults to 50). Raise it if you suspect older traces.
+- **Ordering**: `--order-by timestamp.desc` is the default. Use `timestamp.asc` to read from oldest to newest.
+- **Environment filter**: `--environment production` only shows traces tagged with that environment. Omit to see every environment.
+- **User filter**: `--user-id <USER_ID>` limits results to a specific user in Langfuse.
+- **Trace-name filter**: `--name <TRACE_NAME>` filters exact trace names (useful if you know the pipeline name shown in Langfuse).
+- **Pattern search**: `--pattern error` performs a substring match over trace name, input, and output payloads for quick pattern recognition.
+- **IO printing**: add `--show-io` to include inputs/outputs in the listing; omit for a concise view.
+
+If you see `No traces found with the given parameters`, try removing filters (environment, user, name, pattern) and increasing `--limit` to broaden the query. Also confirm the host and keys point to the same Langfuse project you view in the UI.
+
 ### Quick test
 To confirm the script is syntactically valid without hitting Langfuse, run:
 ```bash

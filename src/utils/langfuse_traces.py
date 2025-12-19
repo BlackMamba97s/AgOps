@@ -222,6 +222,19 @@ def main() -> None:
 
     if not traces:
         print("No traces found with the given parameters.")
+        print(
+            "Tried with: "
+            f"environment={args.environment or 'any'}, "
+            f"user-id={args.user_id or 'any'}, "
+            f"name={args.name or 'any'}, "
+            f"pattern={args.pattern or 'none'}, "
+            f"order-by={order_by or 'default'}, "
+            f"limit={args.limit}."
+        )
+        print(
+            "Hints: verify the LANGFUSE_* credentials/host, try removing filters, "
+            "or increase --limit to surface older traces."
+        )
         return
 
     print(
