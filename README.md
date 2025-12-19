@@ -39,9 +39,10 @@ The repository includes a small CLI helper for listing Langfuse traces and spott
    export LANGFUSE_PUBLIC_KEY="pk_..."
    export LANGFUSE_SECRET_KEY="sk_..."
    ```
-3. Run the script from the repo root to fetch and print traces:
+3. Run the script from the repo root to fetch and print traces (you can also filter by environment, user, or trace name):
    ```bash
-   python -m src.utils.langfuse_traces --limit 20 --pattern error
+   python -m src.utils.langfuse_traces \
+     --limit 20 --pattern error --environment production --show-io
    ```
 
 ### Quick test

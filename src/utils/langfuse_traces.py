@@ -53,6 +53,32 @@ def parse_args() -> argparse.Namespace:
         help="Maximum number of traces to fetch (default: 50)",
     )
     parser.add_argument(
+        "--environment",
+        type=str,
+        help="Filter by Langfuse environment (e.g. production, staging)",
+    )
+    parser.add_argument(
+        "--user-id",
+        type=str,
+        help="Filter by userId",
+    )
+    parser.add_argument(
+        "--name",
+        type=str,
+        help="Filter by trace name",
+    )
+    parser.add_argument(
+        "--order-by",
+        type=str,
+        default="createdAt:desc",
+        help="Field and direction, e.g. createdAt:desc (default) or createdAt:asc",
+    )
+    parser.add_argument(
+        "--show-io",
+        action="store_true",
+        help="Print the input/output payloads when available",
+    )
+    parser.add_argument(
         "--pattern",
         type=str,
         help="Optional substring to filter trace names or descriptions",
@@ -66,9 +92,23 @@ def require(value: str | None, name: str) -> str:
     raise SystemExit(f"Missing required setting: {name}. Set it via --{name} or LANGFUSE_{name.upper()}.")
 
 
-def fetch_traces(client: Langfuse, limit: int) -> List[object]:
+def fetch_traces(
+    client: Langfuse,
+    *,
+    limit: int,
+    environment: str | None,
+    user_id: str | None,
+    name: str | None,
+    order_by: str | None,
+) -> List[object]:
     """Retrieve traces up to the given limit using the Langfuse SDK."""
-    response = client.fetch_traces(limit=limit)
+    response = client.fetch_traces(
+        limit=limit,
+        environment=environment,
+        user_id=user_id,
+        name=name,
+        order_by=order_by,
+    )
     return list(response.data)
 
 
@@ -76,16 +116,29 @@ def normalize_text(value: str | None) -> str:
     return value.lower() if isinstance(value, str) else ""
 
 
-def format_trace(trace: object) -> str:
+def format_trace(trace: object, *, show_io: bool) -> str:
     data = trace.dict()
-    return " | ".join(
-        [
-            data.get("id", "<id?>"),
-            data.get("name", "<name?>") or "<name?>",
-            data.get("userId", "<user?>") or "<user?>",
-            data.get("timestamp", "<timestamp?>") or "<timestamp?>",
-        ]
-    )
+    basics = [
+        data.get("id", "<id?>"),
+        data.get("name", "<name?>") or "<name?>",
+        data.get("userId", "<user?>") or "<user?>",
+        data.get("environment", "<env?>") or "<env?>",
+        data.get("timestamp", data.get("createdAt", "<timestamp?>")) or "<timestamp?>",
+    ]
+
+    if not show_io:
+        return " | ".join(basics)
+
+    details = []
+    input_payload = data.get("input")
+    output_payload = data.get("output")
+    if input_payload:
+        details.append(f"input={input_payload}")
+    if output_payload:
+        details.append(f"output={output_payload}")
+
+    joined_details = " | ".join(details) if details else "no-io"
+    return " | ".join(basics + [joined_details])
 
 
 def print_name_frequencies(traces: Iterable[object]) -> None:
@@ -111,7 +164,17 @@ def main() -> None:
 
     client = Langfuse(host=host, public_key=public_key, secret_key=secret_key)
 
-    traces = fetch_traces(client=client, limit=args.limit)
+    try:
+        traces = fetch_traces(
+            client=client,
+            limit=args.limit,
+            environment=args.environment,
+            user_id=args.user_id,
+            name=args.name,
+            order_by=args.order_by,
+        )
+    except Exception as exc:  # pragma: no cover - defensive user feedback
+        raise SystemExit(f"Failed to fetch traces: {exc}") from exc
     if args.pattern:
         pattern = normalize_text(args.pattern)
         traces = [
@@ -126,9 +189,12 @@ def main() -> None:
         print("No traces found with the given parameters.")
         return
 
-    print(f"Fetched {len(traces)} traces:\n")
+    print(
+        f"Fetched {len(traces)} traces"
+        f" (order={args.order_by}; environment={args.environment or 'any'}):\n"
+    )
     for trace in traces:
-        print(f"- {format_trace(trace)}")
+        print(f"- {format_trace(trace, show_io=args.show_io)}")
 
     print_name_frequencies(traces)
 
