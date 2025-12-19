@@ -10,8 +10,10 @@ K8S ClusterVigil is an event-aware chatbot capable of answering any questions wi
 - Manual login to the cluster
 - Installing the dependencies
 ```
+# Use the `-r` flag (without it pip will try to install a package literally
+# named "requirements.txt" and fail):
 pip install -r requirements.txt
-``` 
+```
 ## Create the vector DB
 ```
 cd src/
