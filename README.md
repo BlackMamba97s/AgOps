@@ -23,3 +23,27 @@ python embed_all.py
 cd src/
 chainlit run cl-async.py
 ```
+
+## Inspect Langfuse traces locally
+The repository includes a small CLI helper for listing Langfuse traces and spotting repeated patterns.
+
+1. Install dependencies (the `langfuse` SDK lives in `requirements.txt`):
+   ```bash
+   pip install -r requirements.txt
+   ```
+2. Export your Langfuse credentials (you can also pass them via flags):
+   ```bash
+   export LANGFUSE_HOST="https://your-langfuse-host"
+   export LANGFUSE_PUBLIC_KEY="pk_..."
+   export LANGFUSE_SECRET_KEY="sk_..."
+   ```
+3. Run the script from the repo root to fetch and print traces:
+   ```bash
+   python -m src.utils.langfuse_traces --limit 20 --pattern error
+   ```
+
+### Quick test
+To confirm the script is syntactically valid without hitting Langfuse, run:
+```bash
+python -m compileall src/utils/langfuse_traces.py
+```
