@@ -54,7 +54,7 @@ The repository includes a small CLI helper for listing Langfuse traces and spott
 - **Environment filter**: `--environment production` only shows traces tagged with that environment. Omit to see every environment.
 - **User filter**: `--user-id <USER_ID>` limits results to a specific user in Langfuse.
 - **Trace-name filter**: `--name <TRACE_NAME>` filters exact trace names (useful if you know the pipeline name shown in Langfuse).
-- **Pattern search**: `--pattern error` performs a substring match over trace name, input, and output payloads for quick pattern recognition.
+- **Pattern search**: `--pattern error` performs a substring match over trace name, input, output, **and metadata** so keywords embedded only in metadata are still surfaced.
 - **IO printing**: add `--show-io` to include inputs/outputs in the listing; omit for a concise view.
 
 If you see `No traces found with the given parameters`, try removing filters (environment, user, name, pattern) and increasing `--limit` to broaden the query. Also confirm the host and keys point to the same Langfuse project you view in the UI.
@@ -77,10 +77,11 @@ python -m src.utils.langfuse_trace_browser \
   --metadata-key request_name \
   --metadata-value "<the value shown in Langfuse>" \
   --since-hours 24 \
-  --show-metadata
+  --show-metadata \
+  --show-io
 ```
 
 - `--metadata-key/--metadata-value` lets you match the exact metadata pair you see in Langfuse (for example, `request_name`).
 - `--pattern error` performs a substring search across name/input/output/metadata.
 - `--since-hours 24` keeps only traces from the last 24 hours (drop it to scan everything in the fetched batch).
-- The script prints how many traces came back from the API before filtering so you can quickly tell whether the credentials/host are working.
+- The script prints how many traces came back from the API before filtering so you can quickly tell whether the credentials/host are working, then prints each trace in a multi-line, separator-separated block (optionally including metadata and IO) for easier comparison.

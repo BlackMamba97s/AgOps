@@ -9,7 +9,9 @@ so you can try whichever script works best in your environment.
 from __future__ import annotations
 
 import argparse
+import json
 import os
+import textwrap
 from datetime import datetime, timedelta, timezone
 from typing import Any, Dict, Iterable, List
 
@@ -55,6 +57,11 @@ def parse_args() -> argparse.Namespace:
         "--show-metadata",
         action="store_true",
         help="Print the metadata dictionary for each trace",
+    )
+    parser.add_argument(
+        "--show-io",
+        action="store_true",
+        help="Print the input/output payloads when available",
     )
     return parser.parse_args()
 
@@ -149,21 +156,60 @@ def summarize_traces(traces: Iterable[Any]) -> None:
         print(f"  {key}: {count}/{total}")
 
 
-def print_trace(trace: Any, *, show_metadata: bool) -> None:
+def print_trace(trace: Any, *, show_metadata: bool, show_io: bool) -> None:
     data = trace.dict()
     ts = parse_timestamp(data)
     ts_display = ts.isoformat() if ts else "<timestamp?>"
+    divider = "=" * 80
     meta = data.get("metadata") or {}
-    basics = [
-        f"id={data.get('id', '<id?>')}",
-        f"name={data.get('name', '<name?>')}",
-        f"user={data.get('userId', '<user?>')}",
-        f"env={data.get('environment', '<env?>')}",
-        f"time={ts_display}",
-    ]
+
+    print(divider)
+    print(f"id:          {data.get('id', '<id?>')}")
+    print(f"name:        {data.get('name', '<name?>')}")
+    print(f"environment: {data.get('environment', '<env?>')}")
+    print(f"userId:      {data.get('userId', '<user?>')}")
+    print(f"timestamp:   {ts_display}")
+    if data.get("durationMs") is not None:
+        print(f"durationMs:  {data['durationMs']}")
+    if data.get("sessionId"):
+        print(f"sessionId:   {data['sessionId']}")
+    if data.get("release"):
+        print(f"release:     {data['release']}")
+
     if show_metadata:
-        basics.append(f"metadata={meta if meta else '{}'}")
-    print(" | ".join(basics))
+        print("metadata:")
+        if meta:
+            print(textwrap.indent(json.dumps(meta, indent=2, ensure_ascii=False), prefix="  "))
+        else:
+            print("  <empty>")
+
+    if show_io and (data.get("input") is not None or data.get("output") is not None):
+        print("io:")
+        if data.get("input") is not None:
+            input_block = json.dumps(data.get("input"), indent=2, ensure_ascii=False)
+            print(textwrap.indent(f"input:\n{input_block}", prefix="  "))
+        if data.get("output") is not None:
+            output_block = json.dumps(data.get("output"), indent=2, ensure_ascii=False)
+            print(textwrap.indent(f"output:\n{output_block}", prefix="  "))
+
+    known_keys = {
+        "id",
+        "name",
+        "environment",
+        "userId",
+        "timestamp",
+        "createdAt",
+        "durationMs",
+        "sessionId",
+        "release",
+        "metadata",
+        "input",
+        "output",
+    }
+    extra_keys = {k: v for k, v in data.items() if k not in known_keys and v is not None}
+    if extra_keys:
+        print("other fields:")
+        print(textwrap.indent(json.dumps(extra_keys, indent=2, ensure_ascii=False), prefix="  "))
 
 
 def main() -> None:
@@ -214,8 +260,9 @@ def main() -> None:
         return
 
     print(f"\nShowing {len(filtered)} trace(s) after filters:")
-    for trace in filtered:
-        print_trace(trace, show_metadata=args.show_metadata)
+    for idx, trace in enumerate(filtered, start=1):
+        print(f"\nTrace {idx}/{len(filtered)}:")
+        print_trace(trace, show_metadata=args.show_metadata, show_io=args.show_io)
 
     summarize_traces(filtered)
 

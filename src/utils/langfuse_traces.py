@@ -21,6 +21,7 @@ from __future__ import annotations
 import argparse
 import os
 from collections import Counter
+import json
 from typing import Iterable, List
 
 from langfuse import Langfuse
@@ -119,6 +120,27 @@ def normalize_text(value: str | None) -> str:
     return value.lower() if isinstance(value, str) else ""
 
 
+def trace_matches_pattern(trace: object, pattern: str) -> bool:
+    """Check if the pattern appears in any user-facing field.
+
+    We scan name/input/output and metadata (stringified) so that traces whose
+    metadata contains the keyword (e.g. "error") are still returned even if the
+    name does not include it. This addresses the earlier surprise where
+    `--pattern error` returned nothing because only metadata contained the term.
+    """
+
+    needle = normalize_text(pattern)
+    data = trace.dict()
+    metadata_text = json.dumps(data.get("metadata", {}), ensure_ascii=False)
+    haystacks = [
+        normalize_text(data.get("name")),
+        normalize_text(data.get("input")),
+        normalize_text(data.get("output")),
+        normalize_text(metadata_text),
+    ]
+    return any(needle in haystack for haystack in haystacks)
+
+
 def normalize_order_by(raw: str | None) -> str | None:
     """Convert a user-provided orderBy string into Langfuse's expected format.
 
@@ -211,14 +233,7 @@ def main() -> None:
     except Exception as exc:  # pragma: no cover - defensive user feedback
         raise SystemExit(f"Failed to fetch traces: {exc}") from exc
     if args.pattern:
-        pattern = normalize_text(args.pattern)
-        traces = [
-            t
-            for t in traces
-            if pattern in normalize_text(t.dict().get("name"))
-            or pattern in normalize_text(t.dict().get("input"))
-            or pattern in normalize_text(t.dict().get("output"))
-        ]
+        traces = [t for t in traces if trace_matches_pattern(t, args.pattern)]
 
     if not traces:
         print("No traces found with the given parameters.")
