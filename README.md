@@ -42,8 +42,10 @@ The repository includes a small CLI helper for listing Langfuse traces and spott
 3. Run the script from the repo root to fetch and print traces (you can also filter by environment, user, or trace name):
    ```bash
    python -m src.utils.langfuse_traces \
-     --limit 20 --pattern error --environment production --show-io
+     --limit 20 --pattern error --environment production --show-io \
+     --order-by timestamp.desc
    ```
+   The `--order-by` flag must follow Langfuse's `[field].[ASC|DESC]` format (for example `timestamp.desc` or `name.ASC`). If you see a 400 error mentioning `orderBy.order`, double-check the casing and separator.
 
 ### Quick test
 To confirm the script is syntactically valid without hitting Langfuse, run:

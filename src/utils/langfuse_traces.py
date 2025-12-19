@@ -70,8 +70,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--order-by",
         type=str,
-        default="createdAt:desc",
-        help="Field and direction, e.g. createdAt:desc (default) or createdAt:asc",
+        default="timestamp.desc",
+        help=(
+            "Sort as [field].[ASC|DESC]; e.g. timestamp.desc (default) or name.asc. "
+            "Colon separators are also accepted (timestamp:DESC)."
+        ),
     )
     parser.add_argument(
         "--show-io",
@@ -114,6 +117,37 @@ def fetch_traces(
 
 def normalize_text(value: str | None) -> str:
     return value.lower() if isinstance(value, str) else ""
+
+
+def normalize_order_by(raw: str | None) -> str | None:
+    """Convert a user-provided orderBy string into Langfuse's expected format.
+
+    The Langfuse API expects `field.ASC` or `field.DESC`. Users previously hit a
+    400 error because the script forwarded values like `createdAt:desc`, which
+    the API rejected. We accept either `:` or `.` as separators and normalize the
+    direction to uppercase, validating against the supported options.
+    """
+
+    if raw is None:
+        return None
+
+    # Split on either "." or ":" to keep backward compatibility with earlier
+    # examples while matching the API requirement of `field.ORDER`.
+    for sep in (".", ":"):
+        if sep in raw:
+            field, order = raw.split(sep, 1)
+            break
+    else:
+        # If only a field is provided, default to DESC so results are recent first.
+        field, order = raw, "DESC"
+
+    order_upper = order.upper()
+    if order_upper not in {"ASC", "DESC"}:
+        raise SystemExit(
+            "Invalid --order-by value. Use [field].[ASC|DESC], e.g. timestamp.desc or name.ASC."
+        )
+
+    return f"{field}.{order_upper}"
 
 
 def format_trace(trace: object, *, show_io: bool) -> str:
@@ -161,6 +195,7 @@ def main() -> None:
     host = require(args.host, "host")
     public_key = require(args.public_key, "public-key")
     secret_key = require(args.secret_key, "secret-key")
+    order_by = normalize_order_by(args.order_by)
 
     client = Langfuse(host=host, public_key=public_key, secret_key=secret_key)
 
@@ -171,7 +206,7 @@ def main() -> None:
             environment=args.environment,
             user_id=args.user_id,
             name=args.name,
-            order_by=args.order_by,
+            order_by=order_by,
         )
     except Exception as exc:  # pragma: no cover - defensive user feedback
         raise SystemExit(f"Failed to fetch traces: {exc}") from exc
@@ -191,7 +226,7 @@ def main() -> None:
 
     print(
         f"Fetched {len(traces)} traces"
-        f" (order={args.order_by}; environment={args.environment or 'any'}):\n"
+        f" (order={order_by or 'default'}; environment={args.environment or 'any'}):\n"
     )
     for trace in traces:
         print(f"- {format_trace(trace, show_io=args.show_io)}")
