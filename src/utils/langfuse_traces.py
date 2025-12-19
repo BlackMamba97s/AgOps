@@ -23,7 +23,7 @@ import os
 from collections import Counter
 from typing import Iterable, List
 
-from langfuse import get_client
+from langfuse import Langfuse
 
 
 def parse_args() -> argparse.Namespace:
@@ -66,9 +66,9 @@ def require(value: str | None, name: str) -> str:
     raise SystemExit(f"Missing required setting: {name}. Set it via --{name} or LANGFUSE_{name.upper()}.")
 
 
-def fetch_traces(limit: int) -> List[object]:
+def fetch_traces(client: Langfuse, limit: int) -> List[object]:
     """Retrieve traces up to the given limit using the Langfuse SDK."""
-    response = client.api.trace.list(limit=limit)
+    response = client.fetch_traces(limit=limit)
     return list(response.data)
 
 
@@ -109,10 +109,9 @@ def main() -> None:
     public_key = require(args.public_key, "public-key")
     secret_key = require(args.secret_key, "secret-key")
 
-    global client
-    client = get_client(host=host, public_key=public_key, secret_key=secret_key)
+    client = Langfuse(host=host, public_key=public_key, secret_key=secret_key)
 
-    traces = fetch_traces(limit=args.limit)
+    traces = fetch_traces(client=client, limit=args.limit)
     if args.pattern:
         pattern = normalize_text(args.pattern)
         traces = [
