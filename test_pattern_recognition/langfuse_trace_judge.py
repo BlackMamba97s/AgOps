@@ -18,7 +18,7 @@ import os
 from pathlib import Path
 from typing import Any, Dict, Iterable, List
 
-from openai import OpenAI
+from openai import AzureOpenAI, OpenAI
 
 
 def parse_args() -> argparse.Namespace:
@@ -165,6 +165,33 @@ def judge_trace(client: OpenAI, model: str, summary: Dict[str, Any]) -> Dict[str
     return result
 
 
+def build_client() -> OpenAI:
+    openai_key = os.getenv("OPENAI_API_KEY")
+    if openai_key:
+        return OpenAI(
+            api_key=openai_key,
+            base_url=os.getenv("OPENAI_BASE_URL"),
+        )
+
+    azure_key = os.getenv("AZURE_API_KEY_GPT4")
+    azure_endpoint = os.getenv("AZURE_ENDPOINT")
+    azure_version = os.getenv("AZURE_GPT_VERSION")
+    azure_deployment = os.getenv("AZURE_GPT_4_MODEL")
+
+    if azure_key and azure_endpoint and azure_version and azure_deployment:
+        return AzureOpenAI(
+            api_key=azure_key,
+            azure_endpoint=azure_endpoint,
+            api_version=azure_version,
+            azure_deployment=azure_deployment,
+        )
+
+    raise SystemExit(
+        "Missing API configuration. Set OPENAI_API_KEY (optional OPENAI_BASE_URL) "
+        "or Azure envs: AZURE_API_KEY_GPT4, AZURE_ENDPOINT, AZURE_GPT_VERSION, AZURE_GPT_4_MODEL."
+    )
+
+
 def main() -> None:
     args = parse_args()
 
@@ -176,10 +203,7 @@ def main() -> None:
     if not records:
         raise SystemExit("No records found in input file.")
 
-    client = OpenAI(
-        api_key=os.getenv("OPENAI_API_KEY"),
-        base_url=os.getenv("OPENAI_BASE_URL"),
-    )
+    client = build_client()
 
     results = []
     for record in records[: args.max_traces]:
