@@ -79,8 +79,16 @@ python test_pattern_recognition/langfuse_trace_judge.py \
 
 ## Variabili d'ambiente richieste
 
-- `OPENAI_API_KEY` (obbligatoria)
-- `OPENAI_BASE_URL` (opzionale, solo se usi endpoint custom)
+- Opzione OpenAI:
+  - `OPENAI_API_KEY` (obbligatoria)
+  - `OPENAI_BASE_URL` (opzionale, solo se usi endpoint custom)
+- Opzione Azure OpenAI:
+  - `AZURE_API_KEY_GPT4`
+  - `AZURE_ENDPOINT`
+  - `AZURE_GPT_VERSION`
+  - `AZURE_GPT_4_MODEL` (deployment name)
+
+> Il judge carica automaticamente un file `.env` se presente nella root del repo o nella cartella del file. In alternativa puoi esportare le variabili nel terminale.
 
 ## Output
 
