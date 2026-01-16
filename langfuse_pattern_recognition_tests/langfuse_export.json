@@ -1,0 +1,1574 @@
+[
+  {
+    "trace": {
+      "id": "55247143d9106de89885fbe108123466",
+      "name": "root-agent-span",
+      "environment": "default",
+      "userId": null,
+      "timestamp": "2025-11-25T13:41:30.105000+00:00",
+      "durationMs": null,
+      "sessionId": null,
+      "release": null,
+      "metadata": {
+        "model": "gpt-4o",
+        "request_name": "correctness_test_dd381e1e-9db5-47f3-b927-d0b1d01725f2",
+        "resourceAttributes": {
+          "telemetry.sdk.language": "python",
+          "telemetry.sdk.name": "opentelemetry",
+          "telemetry.sdk.version": "1.34.1",
+          "service.name": "unknown_service"
+        },
+        "scope": {
+          "name": "langfuse-sdk",
+          "version": "3.9.1",
+          "attributes": {
+            "public_key": "pk-lf-05400f79-300a-432a-a1be-3c83194f5299"
+          }
+        }
+      },
+      "tags": [],
+      "public": false,
+      "latency": 0.752,
+      "totalCost": 0.0011569,
+      "projectId": "cmc0au0cx0007vb07vl9t0407",
+      "updatedAt": "2025-11-25T13:41:34.816Z",
+      "htmlPath": "/project/cmc0au0cx0007vb07vl9t0407/traces/55247143d9106de89885fbe108123466"
+    },
+    "observations": [],
+    "stepSequence": [],
+    "warnings": {
+      "observationsFetch": "api.observations.get failed: ObservationsClient.get() got an unexpected keyword argument 'id'"
+    }
+  },
+  {
+    "trace": {
+      "id": "0d1d35a49019300df4bd8aa89ffff825",
+      "name": "root-agent-span",
+      "environment": "default",
+      "userId": null,
+      "timestamp": "2025-11-25T13:41:29.455000+00:00",
+      "durationMs": null,
+      "sessionId": null,
+      "release": null,
+      "metadata": {
+        "model": "gpt-4o",
+        "request_name": "correctness_test_32f5978a-43db-4e02-b525-f711433c0ac3",
+        "resourceAttributes": {
+          "telemetry.sdk.language": "python",
+          "telemetry.sdk.name": "opentelemetry",
+          "telemetry.sdk.version": "1.34.1",
+          "service.name": "unknown_service"
+        },
+        "scope": {
+          "name": "langfuse-sdk",
+          "version": "3.9.1",
+          "attributes": {
+            "public_key": "pk-lf-05400f79-300a-432a-a1be-3c83194f5299"
+          }
+        }
+      },
+      "tags": [],
+      "public": false,
+      "latency": 0.617,
+      "totalCost": 0.0010532,
+      "projectId": "cmc0au0cx0007vb07vl9t0407",
+      "updatedAt": "2025-11-25T13:41:34.818Z",
+      "htmlPath": "/project/cmc0au0cx0007vb07vl9t0407/traces/0d1d35a49019300df4bd8aa89ffff825"
+    },
+    "observations": [],
+    "stepSequence": [],
+    "warnings": {
+      "observationsFetch": "api.observations.get failed: ObservationsClient.get() got an unexpected keyword argument 'id'"
+    }
+  },
+  {
+    "trace": {
+      "id": "b465ad2721cdabf6b962432727fd693b",
+      "name": "root-agent-span",
+      "environment": "default",
+      "userId": null,
+      "timestamp": "2025-11-25T13:41:28.768000+00:00",
+      "durationMs": null,
+      "sessionId": null,
+      "release": null,
+      "metadata": {
+        "model": "gpt-4o",
+        "request_name": "correctness_test_0e9aa20e-db0c-4e1f-9d13-068fbda9e9d9",
+        "resourceAttributes": {
+          "telemetry.sdk.language": "python",
+          "telemetry.sdk.name": "opentelemetry",
+          "telemetry.sdk.version": "1.34.1",
+          "service.name": "unknown_service"
+        },
+        "scope": {
+          "name": "langfuse-sdk",
+          "version": "3.9.1",
+          "attributes": {
+            "public_key": "pk-lf-05400f79-300a-432a-a1be-3c83194f5299"
+          }
+        }
+      },
+      "tags": [],
+      "public": false,
+      "latency": 0.616,
+      "totalCost": 0.0010992,
+      "projectId": "cmc0au0cx0007vb07vl9t0407",
+      "updatedAt": "2025-11-25T13:41:29.963Z",
+      "htmlPath": "/project/cmc0au0cx0007vb07vl9t0407/traces/b465ad2721cdabf6b962432727fd693b"
+    },
+    "observations": [],
+    "stepSequence": [],
+    "warnings": {
+      "observationsFetch": "api.observations.get failed: ObservationsClient.get() got an unexpected keyword argument 'id'"
+    }
+  },
+  {
+    "trace": {
+      "id": "f9de49c7afae4bb628cf8e75872110ed",
+      "name": "root-agent-span",
+      "environment": "default",
+      "userId": null,
+      "timestamp": "2025-11-25T13:41:28.032000+00:00",
+      "durationMs": null,
+      "sessionId": null,
+      "release": null,
+      "metadata": {
+        "model": "gpt-4o",
+        "request_name": "correctness_test_5d9a5213-324a-4971-b09c-95f857ed5765",
+        "resourceAttributes": {
+          "telemetry.sdk.language": "python",
+          "telemetry.sdk.name": "opentelemetry",
+          "telemetry.sdk.version": "1.34.1",
+          "service.name": "unknown_service"
+        },
+        "scope": {
+          "name": "langfuse-sdk",
+          "version": "3.9.1",
+          "attributes": {
+            "public_key": "pk-lf-05400f79-300a-432a-a1be-3c83194f5299"
+          }
+        }
+      },
+      "tags": [],
+      "public": false,
+      "latency": 0.669,
+      "totalCost": 0.001041499999,
+      "projectId": "cmc0au0cx0007vb07vl9t0407",
+      "updatedAt": "2025-11-25T13:41:29.964Z",
+      "htmlPath": "/project/cmc0au0cx0007vb07vl9t0407/traces/f9de49c7afae4bb628cf8e75872110ed"
+    },
+    "observations": [],
+    "stepSequence": [],
+    "warnings": {
+      "observationsFetch": "api.observations.get failed: ObservationsClient.get() got an unexpected keyword argument 'id'"
+    }
+  },
+  {
+    "trace": {
+      "id": "bcdcdf249a07ce0710a94a1d082975a8",
+      "name": "root-agent-span",
+      "environment": "default",
+      "userId": null,
+      "timestamp": "2025-11-25T13:41:27.303000+00:00",
+      "durationMs": null,
+      "sessionId": null,
+      "release": null,
+      "metadata": {
+        "model": "gpt-4o",
+        "request_name": "correctness_test_e444e6ee-f02f-4be2-bd85-e26949749d9a",
+        "resourceAttributes": {
+          "telemetry.sdk.language": "python",
+          "telemetry.sdk.name": "opentelemetry",
+          "telemetry.sdk.version": "1.34.1",
+          "service.name": "unknown_service"
+        },
+        "scope": {
+          "name": "langfuse-sdk",
+          "version": "3.9.1",
+          "attributes": {
+            "public_key": "pk-lf-05400f79-300a-432a-a1be-3c83194f5299"
+          }
+        }
+      },
+      "tags": [],
+      "public": false,
+      "latency": 0.682,
+      "totalCost": 0.0011059,
+      "projectId": "cmc0au0cx0007vb07vl9t0407",
+      "updatedAt": "2025-11-25T13:41:29.949Z",
+      "htmlPath": "/project/cmc0au0cx0007vb07vl9t0407/traces/bcdcdf249a07ce0710a94a1d082975a8"
+    },
+    "observations": [],
+    "stepSequence": [],
+    "warnings": {
+      "observationsFetch": "api.observations.get failed: ObservationsClient.get() got an unexpected keyword argument 'id'"
+    }
+  },
+  {
+    "trace": {
+      "id": "eb4e2040a9d983e8a18d469a9842c936",
+      "name": "root-agent-span",
+      "environment": "default",
+      "userId": null,
+      "timestamp": "2025-11-25T13:41:26.913000+00:00",
+      "durationMs": null,
+      "sessionId": null,
+      "release": null,
+      "metadata": {
+        "model": "gpt-4o",
+        "request_name": "correctness_test_d8e2f008-fafb-4fbd-872b-ca25545cab35",
+        "resourceAttributes": {
+          "telemetry.sdk.language": "python",
+          "telemetry.sdk.name": "opentelemetry",
+          "telemetry.sdk.version": "1.34.1",
+          "service.name": "unknown_service"
+        },
+        "scope": {
+          "name": "langfuse-sdk",
+          "version": "3.9.1",
+          "attributes": {
+            "public_key": "pk-lf-05400f79-300a-432a-a1be-3c83194f5299"
+          }
+        }
+      },
+      "tags": [],
+      "public": false,
+      "latency": 0.342,
+      "totalCost": 0.0008328,
+      "projectId": "cmc0au0cx0007vb07vl9t0407",
+      "updatedAt": "2025-11-25T13:41:29.928Z",
+      "htmlPath": "/project/cmc0au0cx0007vb07vl9t0407/traces/eb4e2040a9d983e8a18d469a9842c936"
+    },
+    "observations": [],
+    "stepSequence": [],
+    "warnings": {
+      "observationsFetch": "api.observations.get failed: ObservationsClient.get() got an unexpected keyword argument 'id'"
+    }
+  },
+  {
+    "trace": {
+      "id": "34be2acda22b720652123d72fb9f3aa1",
+      "name": "root-agent-span",
+      "environment": "default",
+      "userId": null,
+      "timestamp": "2025-11-25T13:41:26.202000+00:00",
+      "durationMs": null,
+      "sessionId": null,
+      "release": null,
+      "metadata": {
+        "model": "gpt-4o",
+        "request_name": "correctness_test_c6f093c2-46e4-4e6e-a090-48f8b2dc3d37",
+        "resourceAttributes": {
+          "telemetry.sdk.language": "python",
+          "telemetry.sdk.name": "opentelemetry",
+          "telemetry.sdk.version": "1.34.1",
+          "service.name": "unknown_service"
+        },
+        "scope": {
+          "name": "langfuse-sdk",
+          "version": "3.9.1",
+          "attributes": {
+            "public_key": "pk-lf-05400f79-300a-432a-a1be-3c83194f5299"
+          }
+        }
+      },
+      "tags": [],
+      "public": false,
+      "latency": 0.651,
+      "totalCost": 0.0010014,
+      "projectId": "cmc0au0cx0007vb07vl9t0407",
+      "updatedAt": "2025-11-25T13:41:29.931Z",
+      "htmlPath": "/project/cmc0au0cx0007vb07vl9t0407/traces/34be2acda22b720652123d72fb9f3aa1"
+    },
+    "observations": [],
+    "stepSequence": [],
+    "warnings": {
+      "observationsFetch": "api.observations.get failed: ObservationsClient.get() got an unexpected keyword argument 'id'"
+    }
+  },
+  {
+    "trace": {
+      "id": "2e9a6d967ba21bae1f0b478c702af55d",
+      "name": "root-agent-span",
+      "environment": "default",
+      "userId": null,
+      "timestamp": "2025-11-25T13:41:24.805000+00:00",
+      "durationMs": null,
+      "sessionId": null,
+      "release": null,
+      "metadata": {
+        "model": "gpt-4o",
+        "request_name": "correctness_test_72ed5453-dbee-4bf4-b7b5-6bbcb348f1db",
+        "resourceAttributes": {
+          "telemetry.sdk.language": "python",
+          "telemetry.sdk.name": "opentelemetry",
+          "telemetry.sdk.version": "1.34.1",
+          "service.name": "unknown_service"
+        },
+        "scope": {
+          "name": "langfuse-sdk",
+          "version": "3.9.1",
+          "attributes": {
+            "public_key": "pk-lf-05400f79-300a-432a-a1be-3c83194f5299"
+          }
+        }
+      },
+      "tags": [],
+      "public": false,
+      "latency": 1.349,
+      "totalCost": 0.007005099999,
+      "projectId": "cmc0au0cx0007vb07vl9t0407",
+      "updatedAt": "2025-11-25T13:41:29.928Z",
+      "htmlPath": "/project/cmc0au0cx0007vb07vl9t0407/traces/2e9a6d967ba21bae1f0b478c702af55d"
+    },
+    "observations": [],
+    "stepSequence": [],
+    "warnings": {
+      "observationsFetch": "api.observations.get failed: ObservationsClient.get() got an unexpected keyword argument 'id'"
+    }
+  },
+  {
+    "trace": {
+      "id": "4a8649785069500466b05a3c5ac85281",
+      "name": "root-agent-span",
+      "environment": "default",
+      "userId": null,
+      "timestamp": "2025-11-25T13:41:24.072000+00:00",
+      "durationMs": null,
+      "sessionId": null,
+      "release": null,
+      "metadata": {
+        "model": "gpt-4o",
+        "request_name": "correctness_test_99b1db0f-4684-4bbf-a521-de563f889944",
+        "resourceAttributes": {
+          "telemetry.sdk.language": "python",
+          "telemetry.sdk.name": "opentelemetry",
+          "telemetry.sdk.version": "1.34.1",
+          "service.name": "unknown_service"
+        },
+        "scope": {
+          "name": "langfuse-sdk",
+          "version": "3.9.1",
+          "attributes": {
+            "public_key": "pk-lf-05400f79-300a-432a-a1be-3c83194f5299"
+          }
+        }
+      },
+      "tags": [],
+      "public": false,
+      "latency": 0.691,
+      "totalCost": 0.0010507,
+      "projectId": "cmc0au0cx0007vb07vl9t0407",
+      "updatedAt": "2025-11-25T13:41:29.920Z",
+      "htmlPath": "/project/cmc0au0cx0007vb07vl9t0407/traces/4a8649785069500466b05a3c5ac85281"
+    },
+    "observations": [],
+    "stepSequence": [],
+    "warnings": {
+      "observationsFetch": "api.observations.get failed: ObservationsClient.get() got an unexpected keyword argument 'id'"
+    }
+  },
+  {
+    "trace": {
+      "id": "a6d11bc86f2a8cef05d09977c541989e",
+      "name": "root-agent-span",
+      "environment": "default",
+      "userId": null,
+      "timestamp": "2025-11-25T13:41:23.622000+00:00",
+      "durationMs": null,
+      "sessionId": null,
+      "release": null,
+      "metadata": {
+        "model": "gpt-4o",
+        "request_name": "correctness_test_f6d42301-d288-4c86-9849-216c206abdc4",
+        "resourceAttributes": {
+          "telemetry.sdk.language": "python",
+          "telemetry.sdk.name": "opentelemetry",
+          "telemetry.sdk.version": "1.34.1",
+          "service.name": "unknown_service"
+        },
+        "scope": {
+          "name": "langfuse-sdk",
+          "version": "3.9.1",
+          "attributes": {
+            "public_key": "pk-lf-05400f79-300a-432a-a1be-3c83194f5299"
+          }
+        }
+      },
+      "tags": [],
+      "public": false,
+      "latency": 0.396,
+      "totalCost": 0.0008328,
+      "projectId": "cmc0au0cx0007vb07vl9t0407",
+      "updatedAt": "2025-11-25T13:41:24.922Z",
+      "htmlPath": "/project/cmc0au0cx0007vb07vl9t0407/traces/a6d11bc86f2a8cef05d09977c541989e"
+    },
+    "observations": [],
+    "stepSequence": [],
+    "warnings": {
+      "observationsFetch": "api.observations.get failed: ObservationsClient.get() got an unexpected keyword argument 'id'"
+    }
+  },
+  {
+    "trace": {
+      "id": "ee8ed675ca3f40ea368beee70e8a3762",
+      "name": "root-agent-span",
+      "environment": "default",
+      "userId": null,
+      "timestamp": "2025-11-25T13:41:22.276000+00:00",
+      "durationMs": null,
+      "sessionId": null,
+      "release": null,
+      "metadata": {
+        "model": "gpt-4o",
+        "request_name": "correctness_test_2b66ff0f-2747-4372-9275-1d88c580c7c7",
+        "resourceAttributes": {
+          "telemetry.sdk.language": "python",
+          "telemetry.sdk.name": "opentelemetry",
+          "telemetry.sdk.version": "1.34.1",
+          "service.name": "unknown_service"
+        },
+        "scope": {
+          "name": "langfuse-sdk",
+          "version": "3.9.1",
+          "attributes": {
+            "public_key": "pk-lf-05400f79-300a-432a-a1be-3c83194f5299"
+          }
+        }
+      },
+      "tags": [],
+      "public": false,
+      "latency": 1.296,
+      "totalCost": 0.007104599998,
+      "projectId": "cmc0au0cx0007vb07vl9t0407",
+      "updatedAt": "2025-11-25T13:41:24.925Z",
+      "htmlPath": "/project/cmc0au0cx0007vb07vl9t0407/traces/ee8ed675ca3f40ea368beee70e8a3762"
+    },
+    "observations": [],
+    "stepSequence": [],
+    "warnings": {
+      "observationsFetch": "api.observations.get failed: ObservationsClient.get() got an unexpected keyword argument 'id'"
+    }
+  },
+  {
+    "trace": {
+      "id": "952d8325bc8fa67e9c913f37b24dfb00",
+      "name": "root-agent-span",
+      "environment": "default",
+      "userId": null,
+      "timestamp": "2025-11-25T13:41:21.864000+00:00",
+      "durationMs": null,
+      "sessionId": null,
+      "release": null,
+      "metadata": {
+        "model": "gpt-4o",
+        "request_name": "correctness_test_2cd5caac-ca3a-4e5a-b46f-4c3eea2643dd",
+        "resourceAttributes": {
+          "telemetry.sdk.language": "python",
+          "telemetry.sdk.name": "opentelemetry",
+          "telemetry.sdk.version": "1.34.1",
+          "service.name": "unknown_service"
+        },
+        "scope": {
+          "name": "langfuse-sdk",
+          "version": "3.9.1",
+          "attributes": {
+            "public_key": "pk-lf-05400f79-300a-432a-a1be-3c83194f5299"
+          }
+        }
+      },
+      "tags": [],
+      "public": false,
+      "latency": 0.361,
+      "totalCost": 0.0008696,
+      "projectId": "cmc0au0cx0007vb07vl9t0407",
+      "updatedAt": "2025-11-25T13:41:24.924Z",
+      "htmlPath": "/project/cmc0au0cx0007vb07vl9t0407/traces/952d8325bc8fa67e9c913f37b24dfb00"
+    },
+    "observations": [],
+    "stepSequence": [],
+    "warnings": {
+      "observationsFetch": "api.observations.get failed: ObservationsClient.get() got an unexpected keyword argument 'id'"
+    }
+  },
+  {
+    "trace": {
+      "id": "dd60f4c485ce8b05bbf88bb34fd84802",
+      "name": "root-agent-span",
+      "environment": "default",
+      "userId": null,
+      "timestamp": "2025-11-25T13:41:20.768000+00:00",
+      "durationMs": null,
+      "sessionId": null,
+      "release": null,
+      "metadata": {
+        "model": "gpt-4o",
+        "request_name": "correctness_test_43f1a390-c752-4fad-99c6-ef425a7d6ece",
+        "resourceAttributes": {
+          "telemetry.sdk.language": "python",
+          "telemetry.sdk.name": "opentelemetry",
+          "telemetry.sdk.version": "1.34.1",
+          "service.name": "unknown_service"
+        },
+        "scope": {
+          "name": "langfuse-sdk",
+          "version": "3.9.1",
+          "attributes": {
+            "public_key": "pk-lf-05400f79-300a-432a-a1be-3c83194f5299"
+          }
+        }
+      },
+      "tags": [],
+      "public": false,
+      "latency": 1.027,
+      "totalCost": 0.007075199999,
+      "projectId": "cmc0au0cx0007vb07vl9t0407",
+      "updatedAt": "2025-11-25T13:41:24.921Z",
+      "htmlPath": "/project/cmc0au0cx0007vb07vl9t0407/traces/dd60f4c485ce8b05bbf88bb34fd84802"
+    },
+    "observations": [],
+    "stepSequence": [],
+    "warnings": {
+      "observationsFetch": "api.observations.get failed: ObservationsClient.get() got an unexpected keyword argument 'id'"
+    }
+  },
+  {
+    "trace": {
+      "id": "39c4b8a8ea4041cdb573321f826dc0b6",
+      "name": "root-agent-span",
+      "environment": "default",
+      "userId": null,
+      "timestamp": "2025-11-25T13:41:19.469000+00:00",
+      "durationMs": null,
+      "sessionId": null,
+      "release": null,
+      "metadata": {
+        "model": "gpt-4o",
+        "request_name": "correctness_test_c0a4e3bb-e999-4484-bf0d-4af2eca24d03",
+        "resourceAttributes": {
+          "telemetry.sdk.language": "python",
+          "telemetry.sdk.name": "opentelemetry",
+          "telemetry.sdk.version": "1.34.1",
+          "service.name": "unknown_service"
+        },
+        "scope": {
+          "name": "langfuse-sdk",
+          "version": "3.9.1",
+          "attributes": {
+            "public_key": "pk-lf-05400f79-300a-432a-a1be-3c83194f5299"
+          }
+        }
+      },
+      "tags": [],
+      "public": false,
+      "latency": 1.236,
+      "totalCost": 0.007024299998,
+      "projectId": "cmc0au0cx0007vb07vl9t0407",
+      "updatedAt": "2025-11-25T13:41:24.817Z",
+      "htmlPath": "/project/cmc0au0cx0007vb07vl9t0407/traces/39c4b8a8ea4041cdb573321f826dc0b6"
+    },
+    "observations": [],
+    "stepSequence": [],
+    "warnings": {
+      "observationsFetch": "api.observations.get failed: ObservationsClient.get() got an unexpected keyword argument 'id'"
+    }
+  },
+  {
+    "trace": {
+      "id": "fe5382ddfdeff19d9a1e5bc6a032b6dd",
+      "name": "root-agent-span",
+      "environment": "default",
+      "userId": null,
+      "timestamp": "2025-11-25T13:41:18.028000+00:00",
+      "durationMs": null,
+      "sessionId": null,
+      "release": null,
+      "metadata": {
+        "model": "gpt-4o",
+        "request_name": "correctness_test_68ec0fd3-84a1-482d-8d5d-be0cb9703693",
+        "resourceAttributes": {
+          "telemetry.sdk.language": "python",
+          "telemetry.sdk.name": "opentelemetry",
+          "telemetry.sdk.version": "1.34.1",
+          "service.name": "unknown_service"
+        },
+        "scope": {
+          "name": "langfuse-sdk",
+          "version": "3.9.1",
+          "attributes": {
+            "public_key": "pk-lf-05400f79-300a-432a-a1be-3c83194f5299"
+          }
+        }
+      },
+      "tags": [],
+      "public": false,
+      "latency": 1.328,
+      "totalCost": 0.0067979,
+      "projectId": "cmc0au0cx0007vb07vl9t0407",
+      "updatedAt": "2025-11-25T13:41:19.774Z",
+      "htmlPath": "/project/cmc0au0cx0007vb07vl9t0407/traces/fe5382ddfdeff19d9a1e5bc6a032b6dd"
+    },
+    "observations": [],
+    "stepSequence": [],
+    "warnings": {
+      "observationsFetch": "api.observations.get failed: ObservationsClient.get() got an unexpected keyword argument 'id'"
+    }
+  },
+  {
+    "trace": {
+      "id": "613dceca7844dcfe21ae96ac359e3783",
+      "name": "experiment-item-run",
+      "environment": "sdk-experiment",
+      "userId": null,
+      "timestamp": "2025-11-25T13:41:16.299000+00:00",
+      "durationMs": null,
+      "sessionId": null,
+      "release": "448d658cf9c8bffb410fb9b6758af603a9d54284",
+      "metadata": {
+        "experiment_name": "PIILeakage rate",
+        "experiment_run_name": "PIILeakage rate",
+        "agent": "k8s-clustervigil-chatbot",
+        "agent_version": "0.1.10",
+        "prompt_version": 6,
+        "rag_version": "rag-3-0-1",
+        "resourceAttributes": {
+          "telemetry.sdk.language": "python",
+          "telemetry.sdk.name": "opentelemetry",
+          "telemetry.sdk.version": "1.38.0",
+          "langfuse.release": "448d658cf9c8bffb410fb9b6758af603a9d54284",
+          "service.name": "unknown_service"
+        },
+        "scope": {
+          "name": "langfuse-sdk",
+          "version": "3.9.1",
+          "attributes": {
+            "public_key": "pk-lf-05400f79-300a-432a-a1be-3c83194f5299"
+          }
+        }
+      },
+      "tags": [],
+      "public": false,
+      "latency": 17.472,
+      "totalCost": 0.0,
+      "projectId": "cmc0au0cx0007vb07vl9t0407",
+      "updatedAt": "2025-11-25T13:41:36.824Z",
+      "htmlPath": "/project/cmc0au0cx0007vb07vl9t0407/traces/613dceca7844dcfe21ae96ac359e3783"
+    },
+    "observations": [],
+    "stepSequence": [],
+    "warnings": {
+      "observationsFetch": "api.observations.get failed: ObservationsClient.get() got an unexpected keyword argument 'id'"
+    }
+  },
+  {
+    "trace": {
+      "id": "cd2028ff1d2f08b8b91bdcfab1e1e2b4",
+      "name": "experiment-item-run",
+      "environment": "sdk-experiment",
+      "userId": null,
+      "timestamp": "2025-11-25T13:41:16.299000+00:00",
+      "durationMs": null,
+      "sessionId": null,
+      "release": "448d658cf9c8bffb410fb9b6758af603a9d54284",
+      "metadata": {
+        "experiment_name": "PIILeakage rate",
+        "experiment_run_name": "PIILeakage rate",
+        "agent": "k8s-clustervigil-chatbot",
+        "agent_version": "0.1.10",
+        "prompt_version": 6,
+        "rag_version": "rag-3-0-1",
+        "resourceAttributes": {
+          "telemetry.sdk.language": "python",
+          "telemetry.sdk.name": "opentelemetry",
+          "telemetry.sdk.version": "1.38.0",
+          "langfuse.release": "448d658cf9c8bffb410fb9b6758af603a9d54284",
+          "service.name": "unknown_service"
+        },
+        "scope": {
+          "name": "langfuse-sdk",
+          "version": "3.9.1",
+          "attributes": {
+            "public_key": "pk-lf-05400f79-300a-432a-a1be-3c83194f5299"
+          }
+        }
+      },
+      "tags": [],
+      "public": false,
+      "latency": 17.696,
+      "totalCost": 0.0,
+      "projectId": "cmc0au0cx0007vb07vl9t0407",
+      "updatedAt": "2025-11-25T13:41:36.822Z",
+      "htmlPath": "/project/cmc0au0cx0007vb07vl9t0407/traces/cd2028ff1d2f08b8b91bdcfab1e1e2b4"
+    },
+    "observations": [],
+    "stepSequence": [],
+    "warnings": {
+      "observationsFetch": "api.observations.get failed: ObservationsClient.get() got an unexpected keyword argument 'id'"
+    }
+  },
+  {
+    "trace": {
+      "id": "1c507e2defcf16b93c427bbae6886ba5",
+      "name": "experiment-item-run",
+      "environment": "sdk-experiment",
+      "userId": null,
+      "timestamp": "2025-11-25T13:41:16.299000+00:00",
+      "durationMs": null,
+      "sessionId": null,
+      "release": "448d658cf9c8bffb410fb9b6758af603a9d54284",
+      "metadata": {
+        "experiment_name": "PIILeakage rate",
+        "experiment_run_name": "PIILeakage rate",
+        "agent": "k8s-clustervigil-chatbot",
+        "agent_version": "0.1.10",
+        "prompt_version": 6,
+        "rag_version": "rag-3-0-1",
+        "resourceAttributes": {
+          "telemetry.sdk.language": "python",
+          "telemetry.sdk.name": "opentelemetry",
+          "telemetry.sdk.version": "1.38.0",
+          "langfuse.release": "448d658cf9c8bffb410fb9b6758af603a9d54284",
+          "service.name": "unknown_service"
+        },
+        "scope": {
+          "name": "langfuse-sdk",
+          "version": "3.9.1",
+          "attributes": {
+            "public_key": "pk-lf-05400f79-300a-432a-a1be-3c83194f5299"
+          }
+        }
+      },
+      "tags": [],
+      "public": false,
+      "latency": 17.479,
+      "totalCost": 0.0,
+      "projectId": "cmc0au0cx0007vb07vl9t0407",
+      "updatedAt": "2025-11-25T13:41:36.821Z",
+      "htmlPath": "/project/cmc0au0cx0007vb07vl9t0407/traces/1c507e2defcf16b93c427bbae6886ba5"
+    },
+    "observations": [],
+    "stepSequence": [],
+    "warnings": {
+      "observationsFetch": "api.observations.get failed: ObservationsClient.get() got an unexpected keyword argument 'id'"
+    }
+  },
+  {
+    "trace": {
+      "id": "100add32590d5a978eeabfc40ff4f077",
+      "name": "experiment-item-run",
+      "environment": "sdk-experiment",
+      "userId": null,
+      "timestamp": "2025-11-25T13:41:16.299000+00:00",
+      "durationMs": null,
+      "sessionId": null,
+      "release": "448d658cf9c8bffb410fb9b6758af603a9d54284",
+      "metadata": {
+        "experiment_name": "PIILeakage rate",
+        "experiment_run_name": "PIILeakage rate",
+        "agent": "k8s-clustervigil-chatbot",
+        "agent_version": "0.1.10",
+        "prompt_version": 6,
+        "rag_version": "rag-3-0-1",
+        "resourceAttributes": {
+          "telemetry.sdk.language": "python",
+          "telemetry.sdk.name": "opentelemetry",
+          "telemetry.sdk.version": "1.38.0",
+          "langfuse.release": "448d658cf9c8bffb410fb9b6758af603a9d54284",
+          "service.name": "unknown_service"
+        },
+        "scope": {
+          "name": "langfuse-sdk",
+          "version": "3.9.1",
+          "attributes": {
+            "public_key": "pk-lf-05400f79-300a-432a-a1be-3c83194f5299"
+          }
+        }
+      },
+      "tags": [],
+      "public": false,
+      "latency": 17.697,
+      "totalCost": 0.0,
+      "projectId": "cmc0au0cx0007vb07vl9t0407",
+      "updatedAt": "2025-11-25T13:41:36.817Z",
+      "htmlPath": "/project/cmc0au0cx0007vb07vl9t0407/traces/100add32590d5a978eeabfc40ff4f077"
+    },
+    "observations": [],
+    "stepSequence": [],
+    "warnings": {
+      "observationsFetch": "api.observations.get failed: ObservationsClient.get() got an unexpected keyword argument 'id'"
+    }
+  },
+  {
+    "trace": {
+      "id": "8ee482bbb93df6418a3743c90d9d029f",
+      "name": "experiment-item-run",
+      "environment": "sdk-experiment",
+      "userId": null,
+      "timestamp": "2025-11-25T13:41:16.298000+00:00",
+      "durationMs": null,
+      "sessionId": null,
+      "release": "448d658cf9c8bffb410fb9b6758af603a9d54284",
+      "metadata": {
+        "experiment_name": "PIILeakage rate",
+        "experiment_run_name": "PIILeakage rate",
+        "agent": "k8s-clustervigil-chatbot",
+        "agent_version": "0.1.10",
+        "prompt_version": 6,
+        "rag_version": "rag-3-0-1",
+        "resourceAttributes": {
+          "telemetry.sdk.language": "python",
+          "telemetry.sdk.name": "opentelemetry",
+          "telemetry.sdk.version": "1.38.0",
+          "langfuse.release": "448d658cf9c8bffb410fb9b6758af603a9d54284",
+          "service.name": "unknown_service"
+        },
+        "scope": {
+          "name": "langfuse-sdk",
+          "version": "3.9.1",
+          "attributes": {
+            "public_key": "pk-lf-05400f79-300a-432a-a1be-3c83194f5299"
+          }
+        }
+      },
+      "tags": [],
+      "public": false,
+      "latency": 17.698,
+      "totalCost": 0.0,
+      "projectId": "cmc0au0cx0007vb07vl9t0407",
+      "updatedAt": "2025-11-25T13:41:36.812Z",
+      "htmlPath": "/project/cmc0au0cx0007vb07vl9t0407/traces/8ee482bbb93df6418a3743c90d9d029f"
+    },
+    "observations": [],
+    "stepSequence": [],
+    "warnings": {
+      "observationsFetch": "api.observations.get failed: ObservationsClient.get() got an unexpected keyword argument 'id'"
+    }
+  },
+  {
+    "trace": {
+      "id": "d97d1bef110fbf3777df9ccf26b20576",
+      "name": "experiment-item-run",
+      "environment": "sdk-experiment",
+      "userId": null,
+      "timestamp": "2025-11-25T13:41:16.298000+00:00",
+      "durationMs": null,
+      "sessionId": null,
+      "release": "448d658cf9c8bffb410fb9b6758af603a9d54284",
+      "metadata": {
+        "experiment_name": "PIILeakage rate",
+        "experiment_run_name": "PIILeakage rate",
+        "agent": "k8s-clustervigil-chatbot",
+        "agent_version": "0.1.10",
+        "prompt_version": 6,
+        "rag_version": "rag-3-0-1",
+        "resourceAttributes": {
+          "telemetry.sdk.language": "python",
+          "telemetry.sdk.name": "opentelemetry",
+          "telemetry.sdk.version": "1.38.0",
+          "langfuse.release": "448d658cf9c8bffb410fb9b6758af603a9d54284",
+          "service.name": "unknown_service"
+        },
+        "scope": {
+          "name": "langfuse-sdk",
+          "version": "3.9.1",
+          "attributes": {
+            "public_key": "pk-lf-05400f79-300a-432a-a1be-3c83194f5299"
+          }
+        }
+      },
+      "tags": [],
+      "public": false,
+      "latency": 17.698,
+      "totalCost": 0.0,
+      "projectId": "cmc0au0cx0007vb07vl9t0407",
+      "updatedAt": "2025-11-25T13:41:36.813Z",
+      "htmlPath": "/project/cmc0au0cx0007vb07vl9t0407/traces/d97d1bef110fbf3777df9ccf26b20576"
+    },
+    "observations": [],
+    "stepSequence": [],
+    "warnings": {
+      "observationsFetch": "api.observations.get failed: ObservationsClient.get() got an unexpected keyword argument 'id'"
+    }
+  },
+  {
+    "trace": {
+      "id": "684a93add60ebd458c6086571fc47b29",
+      "name": "experiment-item-run",
+      "environment": "sdk-experiment",
+      "userId": null,
+      "timestamp": "2025-11-25T13:41:16.297000+00:00",
+      "durationMs": null,
+      "sessionId": null,
+      "release": "448d658cf9c8bffb410fb9b6758af603a9d54284",
+      "metadata": {
+        "experiment_name": "PIILeakage rate",
+        "experiment_run_name": "PIILeakage rate",
+        "agent": "k8s-clustervigil-chatbot",
+        "agent_version": "0.1.10",
+        "prompt_version": 6,
+        "rag_version": "rag-3-0-1",
+        "resourceAttributes": {
+          "telemetry.sdk.language": "python",
+          "telemetry.sdk.name": "opentelemetry",
+          "telemetry.sdk.version": "1.38.0",
+          "langfuse.release": "448d658cf9c8bffb410fb9b6758af603a9d54284",
+          "service.name": "unknown_service"
+        },
+        "scope": {
+          "name": "langfuse-sdk",
+          "version": "3.9.1",
+          "attributes": {
+            "public_key": "pk-lf-05400f79-300a-432a-a1be-3c83194f5299"
+          }
+        }
+      },
+      "tags": [],
+      "public": false,
+      "latency": 19.77,
+      "totalCost": 0.0,
+      "projectId": "cmc0au0cx0007vb07vl9t0407",
+      "updatedAt": "2025-11-25T13:41:36.800Z",
+      "htmlPath": "/project/cmc0au0cx0007vb07vl9t0407/traces/684a93add60ebd458c6086571fc47b29"
+    },
+    "observations": [],
+    "stepSequence": [],
+    "warnings": {
+      "observationsFetch": "api.observations.get failed: ObservationsClient.get() got an unexpected keyword argument 'id'"
+    }
+  },
+  {
+    "trace": {
+      "id": "d6113d4066c9c78fa64ebd078e6051a3",
+      "name": "experiment-item-run",
+      "environment": "sdk-experiment",
+      "userId": null,
+      "timestamp": "2025-11-25T13:41:16.297000+00:00",
+      "durationMs": null,
+      "sessionId": null,
+      "release": "448d658cf9c8bffb410fb9b6758af603a9d54284",
+      "metadata": {
+        "experiment_name": "PIILeakage rate",
+        "experiment_run_name": "PIILeakage rate",
+        "agent": "k8s-clustervigil-chatbot",
+        "agent_version": "0.1.10",
+        "prompt_version": 6,
+        "rag_version": "rag-3-0-1",
+        "resourceAttributes": {
+          "telemetry.sdk.language": "python",
+          "telemetry.sdk.name": "opentelemetry",
+          "telemetry.sdk.version": "1.38.0",
+          "langfuse.release": "448d658cf9c8bffb410fb9b6758af603a9d54284",
+          "service.name": "unknown_service"
+        },
+        "scope": {
+          "name": "langfuse-sdk",
+          "version": "3.9.1",
+          "attributes": {
+            "public_key": "pk-lf-05400f79-300a-432a-a1be-3c83194f5299"
+          }
+        }
+      },
+      "tags": [],
+      "public": false,
+      "latency": 19.769,
+      "totalCost": 0.0,
+      "projectId": "cmc0au0cx0007vb07vl9t0407",
+      "updatedAt": "2025-11-25T13:41:36.797Z",
+      "htmlPath": "/project/cmc0au0cx0007vb07vl9t0407/traces/d6113d4066c9c78fa64ebd078e6051a3"
+    },
+    "observations": [],
+    "stepSequence": [],
+    "warnings": {
+      "observationsFetch": "api.observations.get failed: ObservationsClient.get() got an unexpected keyword argument 'id'"
+    }
+  },
+  {
+    "trace": {
+      "id": "e901d0cc53205a24ab2e11b7ad2ff3e6",
+      "name": "experiment-item-run",
+      "environment": "sdk-experiment",
+      "userId": null,
+      "timestamp": "2025-11-25T13:41:16.297000+00:00",
+      "durationMs": null,
+      "sessionId": null,
+      "release": "448d658cf9c8bffb410fb9b6758af603a9d54284",
+      "metadata": {
+        "experiment_name": "PIILeakage rate",
+        "experiment_run_name": "PIILeakage rate",
+        "agent": "k8s-clustervigil-chatbot",
+        "agent_version": "0.1.10",
+        "prompt_version": 6,
+        "rag_version": "rag-3-0-1",
+        "resourceAttributes": {
+          "telemetry.sdk.language": "python",
+          "telemetry.sdk.name": "opentelemetry",
+          "telemetry.sdk.version": "1.38.0",
+          "langfuse.release": "448d658cf9c8bffb410fb9b6758af603a9d54284",
+          "service.name": "unknown_service"
+        },
+        "scope": {
+          "name": "langfuse-sdk",
+          "version": "3.9.1",
+          "attributes": {
+            "public_key": "pk-lf-05400f79-300a-432a-a1be-3c83194f5299"
+          }
+        }
+      },
+      "tags": [],
+      "public": false,
+      "latency": 20.323,
+      "totalCost": 0.0,
+      "projectId": "cmc0au0cx0007vb07vl9t0407",
+      "updatedAt": "2025-11-25T13:41:36.798Z",
+      "htmlPath": "/project/cmc0au0cx0007vb07vl9t0407/traces/e901d0cc53205a24ab2e11b7ad2ff3e6"
+    },
+    "observations": [],
+    "stepSequence": [],
+    "warnings": {
+      "observationsFetch": "api.observations.get failed: ObservationsClient.get() got an unexpected keyword argument 'id'"
+    }
+  },
+  {
+    "trace": {
+      "id": "ec7d278ce2868c77167304944664f7f3",
+      "name": "experiment-item-run",
+      "environment": "sdk-experiment",
+      "userId": null,
+      "timestamp": "2025-11-25T13:41:16.297000+00:00",
+      "durationMs": null,
+      "sessionId": null,
+      "release": "448d658cf9c8bffb410fb9b6758af603a9d54284",
+      "metadata": {
+        "experiment_name": "PIILeakage rate",
+        "experiment_run_name": "PIILeakage rate",
+        "agent": "k8s-clustervigil-chatbot",
+        "agent_version": "0.1.10",
+        "prompt_version": 6,
+        "rag_version": "rag-3-0-1",
+        "resourceAttributes": {
+          "telemetry.sdk.language": "python",
+          "telemetry.sdk.name": "opentelemetry",
+          "telemetry.sdk.version": "1.38.0",
+          "langfuse.release": "448d658cf9c8bffb410fb9b6758af603a9d54284",
+          "service.name": "unknown_service"
+        },
+        "scope": {
+          "name": "langfuse-sdk",
+          "version": "3.9.1",
+          "attributes": {
+            "public_key": "pk-lf-05400f79-300a-432a-a1be-3c83194f5299"
+          }
+        }
+      },
+      "tags": [],
+      "public": false,
+      "latency": 19.768,
+      "totalCost": 0.0,
+      "projectId": "cmc0au0cx0007vb07vl9t0407",
+      "updatedAt": "2025-11-25T13:41:36.797Z",
+      "htmlPath": "/project/cmc0au0cx0007vb07vl9t0407/traces/ec7d278ce2868c77167304944664f7f3"
+    },
+    "observations": [],
+    "stepSequence": [],
+    "warnings": {
+      "observationsFetch": "api.observations.get failed: ObservationsClient.get() got an unexpected keyword argument 'id'"
+    }
+  },
+  {
+    "trace": {
+      "id": "f849fcbd70842db94e7fcb2e6250565a",
+      "name": "experiment-item-run",
+      "environment": "sdk-experiment",
+      "userId": null,
+      "timestamp": "2025-11-25T13:41:16.297000+00:00",
+      "durationMs": null,
+      "sessionId": null,
+      "release": "448d658cf9c8bffb410fb9b6758af603a9d54284",
+      "metadata": {
+        "experiment_name": "PIILeakage rate",
+        "experiment_run_name": "PIILeakage rate",
+        "agent": "k8s-clustervigil-chatbot",
+        "agent_version": "0.1.10",
+        "prompt_version": 6,
+        "rag_version": "rag-3-0-1",
+        "resourceAttributes": {
+          "telemetry.sdk.language": "python",
+          "telemetry.sdk.name": "opentelemetry",
+          "telemetry.sdk.version": "1.38.0",
+          "langfuse.release": "448d658cf9c8bffb410fb9b6758af603a9d54284",
+          "service.name": "unknown_service"
+        },
+        "scope": {
+          "name": "langfuse-sdk",
+          "version": "3.9.1",
+          "attributes": {
+            "public_key": "pk-lf-05400f79-300a-432a-a1be-3c83194f5299"
+          }
+        }
+      },
+      "tags": [],
+      "public": false,
+      "latency": 19.769,
+      "totalCost": 0.0,
+      "projectId": "cmc0au0cx0007vb07vl9t0407",
+      "updatedAt": "2025-11-25T13:41:36.811Z",
+      "htmlPath": "/project/cmc0au0cx0007vb07vl9t0407/traces/f849fcbd70842db94e7fcb2e6250565a"
+    },
+    "observations": [],
+    "stepSequence": [],
+    "warnings": {
+      "observationsFetch": "api.observations.get failed: ObservationsClient.get() got an unexpected keyword argument 'id'"
+    }
+  },
+  {
+    "trace": {
+      "id": "0e58a185d666e3d32a0981522c2a566b",
+      "name": "experiment-item-run",
+      "environment": "sdk-experiment",
+      "userId": null,
+      "timestamp": "2025-11-25T13:41:16.297000+00:00",
+      "durationMs": null,
+      "sessionId": null,
+      "release": "448d658cf9c8bffb410fb9b6758af603a9d54284",
+      "metadata": {
+        "experiment_name": "PIILeakage rate",
+        "experiment_run_name": "PIILeakage rate",
+        "agent": "k8s-clustervigil-chatbot",
+        "agent_version": "0.1.10",
+        "prompt_version": 6,
+        "rag_version": "rag-3-0-1",
+        "resourceAttributes": {
+          "telemetry.sdk.language": "python",
+          "telemetry.sdk.name": "opentelemetry",
+          "telemetry.sdk.version": "1.38.0",
+          "langfuse.release": "448d658cf9c8bffb410fb9b6758af603a9d54284",
+          "service.name": "unknown_service"
+        },
+        "scope": {
+          "name": "langfuse-sdk",
+          "version": "3.9.1",
+          "attributes": {
+            "public_key": "pk-lf-05400f79-300a-432a-a1be-3c83194f5299"
+          }
+        }
+      },
+      "tags": [],
+      "public": false,
+      "latency": 19.769,
+      "totalCost": 0.0,
+      "projectId": "cmc0au0cx0007vb07vl9t0407",
+      "updatedAt": "2025-11-25T13:41:36.801Z",
+      "htmlPath": "/project/cmc0au0cx0007vb07vl9t0407/traces/0e58a185d666e3d32a0981522c2a566b"
+    },
+    "observations": [],
+    "stepSequence": [],
+    "warnings": {
+      "observationsFetch": "api.observations.get failed: ObservationsClient.get() got an unexpected keyword argument 'id'"
+    }
+  },
+  {
+    "trace": {
+      "id": "b7e8b9485c6162b824f97fe1980d7137",
+      "name": "experiment-item-run",
+      "environment": "sdk-experiment",
+      "userId": null,
+      "timestamp": "2025-11-25T13:41:16.296000+00:00",
+      "durationMs": null,
+      "sessionId": null,
+      "release": "448d658cf9c8bffb410fb9b6758af603a9d54284",
+      "metadata": {
+        "experiment_name": "PIILeakage rate",
+        "experiment_run_name": "PIILeakage rate",
+        "agent": "k8s-clustervigil-chatbot",
+        "agent_version": "0.1.10",
+        "prompt_version": 6,
+        "rag_version": "rag-3-0-1",
+        "resourceAttributes": {
+          "telemetry.sdk.language": "python",
+          "telemetry.sdk.name": "opentelemetry",
+          "telemetry.sdk.version": "1.38.0",
+          "langfuse.release": "448d658cf9c8bffb410fb9b6758af603a9d54284",
+          "service.name": "unknown_service"
+        },
+        "scope": {
+          "name": "langfuse-sdk",
+          "version": "3.9.1",
+          "attributes": {
+            "public_key": "pk-lf-05400f79-300a-432a-a1be-3c83194f5299"
+          }
+        }
+      },
+      "tags": [],
+      "public": false,
+      "latency": 20.325,
+      "totalCost": 0.0,
+      "projectId": "cmc0au0cx0007vb07vl9t0407",
+      "updatedAt": "2025-11-25T13:41:36.799Z",
+      "htmlPath": "/project/cmc0au0cx0007vb07vl9t0407/traces/b7e8b9485c6162b824f97fe1980d7137"
+    },
+    "observations": [],
+    "stepSequence": [],
+    "warnings": {
+      "observationsFetch": "api.observations.get failed: ObservationsClient.get() got an unexpected keyword argument 'id'"
+    }
+  },
+  {
+    "trace": {
+      "id": "34734fe0c477a0c55b337dacc501b3a8",
+      "name": "experiment-item-run",
+      "environment": "sdk-experiment",
+      "userId": null,
+      "timestamp": "2025-11-25T13:41:16.296000+00:00",
+      "durationMs": null,
+      "sessionId": null,
+      "release": "448d658cf9c8bffb410fb9b6758af603a9d54284",
+      "metadata": {
+        "experiment_name": "PIILeakage rate",
+        "experiment_run_name": "PIILeakage rate",
+        "agent": "k8s-clustervigil-chatbot",
+        "agent_version": "0.1.10",
+        "prompt_version": 6,
+        "rag_version": "rag-3-0-1",
+        "resourceAttributes": {
+          "telemetry.sdk.language": "python",
+          "telemetry.sdk.name": "opentelemetry",
+          "telemetry.sdk.version": "1.38.0",
+          "langfuse.release": "448d658cf9c8bffb410fb9b6758af603a9d54284",
+          "service.name": "unknown_service"
+        },
+        "scope": {
+          "name": "langfuse-sdk",
+          "version": "3.9.1",
+          "attributes": {
+            "public_key": "pk-lf-05400f79-300a-432a-a1be-3c83194f5299"
+          }
+        }
+      },
+      "tags": [],
+      "public": false,
+      "latency": 20.324,
+      "totalCost": 0.0,
+      "projectId": "cmc0au0cx0007vb07vl9t0407",
+      "updatedAt": "2025-11-25T13:41:36.798Z",
+      "htmlPath": "/project/cmc0au0cx0007vb07vl9t0407/traces/34734fe0c477a0c55b337dacc501b3a8"
+    },
+    "observations": [],
+    "stepSequence": [],
+    "warnings": {
+      "observationsFetch": "api.observations.get failed: ObservationsClient.get() got an unexpected keyword argument 'id'"
+    }
+  },
+  {
+    "trace": {
+      "id": "0255a5e60d73ffd8aa5a65b46a58c3e2",
+      "name": "experiment-item-run",
+      "environment": "sdk-experiment",
+      "userId": null,
+      "timestamp": "2025-11-25T13:41:16.296000+00:00",
+      "durationMs": null,
+      "sessionId": null,
+      "release": "448d658cf9c8bffb410fb9b6758af603a9d54284",
+      "metadata": {
+        "experiment_name": "PIILeakage rate",
+        "experiment_run_name": "PIILeakage rate",
+        "agent": "k8s-clustervigil-chatbot",
+        "agent_version": "0.1.10",
+        "prompt_version": 6,
+        "rag_version": "rag-3-0-1",
+        "resourceAttributes": {
+          "telemetry.sdk.language": "python",
+          "telemetry.sdk.name": "opentelemetry",
+          "telemetry.sdk.version": "1.38.0",
+          "langfuse.release": "448d658cf9c8bffb410fb9b6758af603a9d54284",
+          "service.name": "unknown_service"
+        },
+        "scope": {
+          "name": "langfuse-sdk",
+          "version": "3.9.1",
+          "attributes": {
+            "public_key": "pk-lf-05400f79-300a-432a-a1be-3c83194f5299"
+          }
+        }
+      },
+      "tags": [],
+      "public": false,
+      "latency": 20.325,
+      "totalCost": 0.0,
+      "projectId": "cmc0au0cx0007vb07vl9t0407",
+      "updatedAt": "2025-11-25T13:41:36.800Z",
+      "htmlPath": "/project/cmc0au0cx0007vb07vl9t0407/traces/0255a5e60d73ffd8aa5a65b46a58c3e2"
+    },
+    "observations": [],
+    "stepSequence": [],
+    "warnings": {
+      "observationsFetch": "api.observations.get failed: ObservationsClient.get() got an unexpected keyword argument 'id'"
+    }
+  },
+  {
+    "trace": {
+      "id": "5324dd95e25dc6e90163626f97272ecf",
+      "name": "root-agent-span",
+      "environment": "default",
+      "userId": null,
+      "timestamp": "2025-11-25T13:41:06.578000+00:00",
+      "durationMs": null,
+      "sessionId": null,
+      "release": null,
+      "metadata": {
+        "model": "gpt-4o",
+        "request_name": "correctness_test_0a7fda0e-ac9d-4ee6-bed4-9a59161a1662",
+        "resourceAttributes": {
+          "telemetry.sdk.language": "python",
+          "telemetry.sdk.name": "opentelemetry",
+          "telemetry.sdk.version": "1.34.1",
+          "service.name": "unknown_service"
+        },
+        "scope": {
+          "name": "langfuse-sdk",
+          "version": "3.9.1",
+          "attributes": {
+            "public_key": "pk-lf-05400f79-300a-432a-a1be-3c83194f5299"
+          }
+        }
+      },
+      "tags": [],
+      "public": false,
+      "latency": 5.283,
+      "totalCost": 0.0105944,
+      "projectId": "cmc0au0cx0007vb07vl9t0407",
+      "updatedAt": "2025-11-25T13:41:14.675Z",
+      "htmlPath": "/project/cmc0au0cx0007vb07vl9t0407/traces/5324dd95e25dc6e90163626f97272ecf"
+    },
+    "observations": [],
+    "stepSequence": [],
+    "warnings": {
+      "observationsFetch": "api.observations.get failed: ObservationsClient.get() got an unexpected keyword argument 'id'"
+    }
+  },
+  {
+    "trace": {
+      "id": "e514d3c3650e2767b254d1334708bef0",
+      "name": "root-agent-span",
+      "environment": "default",
+      "userId": null,
+      "timestamp": "2025-11-25T13:41:02.295000+00:00",
+      "durationMs": null,
+      "sessionId": null,
+      "release": null,
+      "metadata": {
+        "model": "gpt-4o",
+        "request_name": "correctness_test_e15b6a67-3a1f-43e1-8ba3-32bd2abee503",
+        "resourceAttributes": {
+          "telemetry.sdk.language": "python",
+          "telemetry.sdk.name": "opentelemetry",
+          "telemetry.sdk.version": "1.34.1",
+          "service.name": "unknown_service"
+        },
+        "scope": {
+          "name": "langfuse-sdk",
+          "version": "3.9.1",
+          "attributes": {
+            "public_key": "pk-lf-05400f79-300a-432a-a1be-3c83194f5299"
+          }
+        }
+      },
+      "tags": [],
+      "public": false,
+      "latency": 4.228,
+      "totalCost": 0.0070441,
+      "projectId": "cmc0au0cx0007vb07vl9t0407",
+      "updatedAt": "2025-11-25T13:41:09.702Z",
+      "htmlPath": "/project/cmc0au0cx0007vb07vl9t0407/traces/e514d3c3650e2767b254d1334708bef0"
+    },
+    "observations": [],
+    "stepSequence": [],
+    "warnings": {
+      "observationsFetch": "api.observations.get failed: ObservationsClient.get() got an unexpected keyword argument 'id'"
+    }
+  },
+  {
+    "trace": {
+      "id": "e75c04e76a1b1a0c14dba1b5b80a69a2",
+      "name": "root-agent-span",
+      "environment": "default",
+      "userId": null,
+      "timestamp": "2025-11-25T13:40:53.091000+00:00",
+      "durationMs": null,
+      "sessionId": null,
+      "release": null,
+      "metadata": {
+        "model": "gpt-4o",
+        "request_name": "correctness_test_6dc1b772-f830-4abf-96ab-72144d428483",
+        "resourceAttributes": {
+          "telemetry.sdk.language": "python",
+          "telemetry.sdk.name": "opentelemetry",
+          "telemetry.sdk.version": "1.34.1",
+          "service.name": "unknown_service"
+        },
+        "scope": {
+          "name": "langfuse-sdk",
+          "version": "3.9.1",
+          "attributes": {
+            "public_key": "pk-lf-05400f79-300a-432a-a1be-3c83194f5299"
+          }
+        }
+      },
+      "tags": [],
+      "public": false,
+      "latency": 9.012,
+      "totalCost": 0.0094434,
+      "projectId": "cmc0au0cx0007vb07vl9t0407",
+      "updatedAt": "2025-11-25T13:41:04.679Z",
+      "htmlPath": "/project/cmc0au0cx0007vb07vl9t0407/traces/e75c04e76a1b1a0c14dba1b5b80a69a2"
+    },
+    "observations": [],
+    "stepSequence": [],
+    "warnings": {
+      "observationsFetch": "api.observations.get failed: ObservationsClient.get() got an unexpected keyword argument 'id'"
+    }
+  },
+  {
+    "trace": {
+      "id": "c70c7f0afd6d41438d729318dc4e5525",
+      "name": "experiment-item-run",
+      "environment": "sdk-experiment",
+      "userId": null,
+      "timestamp": "2025-11-25T13:40:52.372000+00:00",
+      "durationMs": null,
+      "sessionId": null,
+      "release": "448d658cf9c8bffb410fb9b6758af603a9d54284",
+      "metadata": {
+        "experiment_name": "Average Accuracy Score",
+        "experiment_run_name": "Average Accuracy Score - 2025-11-25T13:40:52.369848Z",
+        "agent": "k8s-clustervigil-chatbot",
+        "agent_version": "0.1.10",
+        "prompt_version": 6,
+        "rag_version": "rag-3-0-1",
+        "dataset_id": "cmc0do2y30005ye07j1ho9khg",
+        "dataset_item_id": "we3v0u0ffal6cnt6wjdkawfj",
+        "resourceAttributes": {
+          "telemetry.sdk.language": "python",
+          "telemetry.sdk.name": "opentelemetry",
+          "telemetry.sdk.version": "1.38.0",
+          "langfuse.release": "448d658cf9c8bffb410fb9b6758af603a9d54284",
+          "service.name": "unknown_service"
+        },
+        "scope": {
+          "name": "langfuse-sdk",
+          "version": "3.9.1",
+          "attributes": {
+            "public_key": "pk-lf-05400f79-300a-432a-a1be-3c83194f5299"
+          }
+        }
+      },
+      "tags": [],
+      "public": false,
+      "latency": 23.817,
+      "totalCost": 0.0,
+      "projectId": "cmc0au0cx0007vb07vl9t0407",
+      "updatedAt": "2025-11-25T13:41:16.309Z",
+      "htmlPath": "/project/cmc0au0cx0007vb07vl9t0407/traces/c70c7f0afd6d41438d729318dc4e5525"
+    },
+    "observations": [],
+    "stepSequence": [],
+    "warnings": {
+      "observationsFetch": "api.observations.get failed: ObservationsClient.get() got an unexpected keyword argument 'id'"
+    }
+  },
+  {
+    "trace": {
+      "id": "0fc96f8df17eed7ff012e452cfcba5cf",
+      "name": "experiment-item-run",
+      "environment": "sdk-experiment",
+      "userId": null,
+      "timestamp": "2025-11-25T13:40:52.371000+00:00",
+      "durationMs": null,
+      "sessionId": null,
+      "release": "448d658cf9c8bffb410fb9b6758af603a9d54284",
+      "metadata": {
+        "experiment_name": "Average Accuracy Score",
+        "experiment_run_name": "Average Accuracy Score - 2025-11-25T13:40:52.369848Z",
+        "agent": "k8s-clustervigil-chatbot",
+        "agent_version": "0.1.10",
+        "prompt_version": 6,
+        "rag_version": "rag-3-0-1",
+        "dataset_id": "cmc0do2y30005ye07j1ho9khg",
+        "dataset_item_id": "opfrh3bin0ncazlb2celugov",
+        "resourceAttributes": {
+          "telemetry.sdk.language": "python",
+          "telemetry.sdk.name": "opentelemetry",
+          "telemetry.sdk.version": "1.38.0",
+          "langfuse.release": "448d658cf9c8bffb410fb9b6758af603a9d54284",
+          "service.name": "unknown_service"
+        },
+        "scope": {
+          "name": "langfuse-sdk",
+          "version": "3.9.1",
+          "attributes": {
+            "public_key": "pk-lf-05400f79-300a-432a-a1be-3c83194f5299"
+          }
+        }
+      },
+      "tags": [],
+      "public": false,
+      "latency": 23.82,
+      "totalCost": 0.0,
+      "projectId": "cmc0au0cx0007vb07vl9t0407",
+      "updatedAt": "2025-11-25T13:41:16.308Z",
+      "htmlPath": "/project/cmc0au0cx0007vb07vl9t0407/traces/0fc96f8df17eed7ff012e452cfcba5cf"
+    },
+    "observations": [],
+    "stepSequence": [],
+    "warnings": {
+      "observationsFetch": "api.observations.get failed: ObservationsClient.get() got an unexpected keyword argument 'id'"
+    }
+  },
+  {
+    "trace": {
+      "id": "9a6c7b89bf95e55123aaec44ecd4f7bc",
+      "name": "experiment-item-run",
+      "environment": "sdk-experiment",
+      "userId": null,
+      "timestamp": "2025-11-25T13:40:52.370000+00:00",
+      "durationMs": null,
+      "sessionId": null,
+      "release": "448d658cf9c8bffb410fb9b6758af603a9d54284",
+      "metadata": {
+        "experiment_name": "Average Accuracy Score",
+        "experiment_run_name": "Average Accuracy Score - 2025-11-25T13:40:52.369848Z",
+        "agent": "k8s-clustervigil-chatbot",
+        "agent_version": "0.1.10",
+        "prompt_version": 6,
+        "rag_version": "rag-3-0-1",
+        "dataset_id": "cmc0do2y30005ye07j1ho9khg",
+        "dataset_item_id": "lp33yru959l8zlnicxw4vrb2",
+        "resourceAttributes": {
+          "telemetry.sdk.language": "python",
+          "telemetry.sdk.name": "opentelemetry",
+          "telemetry.sdk.version": "1.38.0",
+          "langfuse.release": "448d658cf9c8bffb410fb9b6758af603a9d54284",
+          "service.name": "unknown_service"
+        },
+        "scope": {
+          "name": "langfuse-sdk",
+          "version": "3.9.1",
+          "attributes": {
+            "public_key": "pk-lf-05400f79-300a-432a-a1be-3c83194f5299"
+          }
+        }
+      },
+      "tags": [],
+      "public": false,
+      "latency": 23.82,
+      "totalCost": 0.0,
+      "projectId": "cmc0au0cx0007vb07vl9t0407",
+      "updatedAt": "2025-11-25T13:41:16.309Z",
+      "htmlPath": "/project/cmc0au0cx0007vb07vl9t0407/traces/9a6c7b89bf95e55123aaec44ecd4f7bc"
+    },
+    "observations": [],
+    "stepSequence": [],
+    "warnings": {
+      "observationsFetch": "api.observations.get failed: ObservationsClient.get() got an unexpected keyword argument 'id'"
+    }
+  }
+]
