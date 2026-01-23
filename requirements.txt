@@ -26,4 +26,4 @@ python-dotenv>=1.0.0
 onnxruntime==1.18.1
 pydantic==2.11.5
 langfuse==2.60.8
-
+deepeval==2.9.2
