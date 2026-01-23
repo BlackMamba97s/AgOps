@@ -15,6 +15,7 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import re
 from pathlib import Path
 from typing import Any, Dict, List
 
@@ -65,6 +66,11 @@ def parse_args() -> argparse.Namespace:
         help="Maximum number of observations to include per trace summary",
     )
     parser.add_argument("--threshold", type=float, default=0.7, help="Passing threshold for the GEval metric")
+    parser.add_argument(
+        "--redact-content",
+        action="store_true",
+        help="Redact potentially unsafe content to reduce content-filter errors",
+    )
     return parser.parse_args()
 
 
@@ -98,15 +104,39 @@ def truncate_text(value: Any, max_chars: int) -> str:
     return text[: max_chars - 40] + " ...[truncated]..."
 
 
-def normalize_observation(obs: Dict[str, Any], max_chars: int) -> Dict[str, Any]:
+def sanitize_text(value: Any) -> str:
+    if value is None:
+        return ""
+    text = value if isinstance(value, str) else json.dumps(value, ensure_ascii=False)
+    patterns = [
+        r"(?i)ignore (all|the) previous",
+        r"(?i)system prompt",
+        r"(?i)developer message",
+        r"(?i)you are chatgpt",
+        r"(?i)jailbreak",
+        r"(?i)prompt injection",
+        r"(?i)do not follow",
+        r"(?i)override",
+    ]
+    for pattern in patterns:
+        text = re.sub(pattern, "[REDACTED]", text)
+    return text
+
+
+def normalize_observation(obs: Dict[str, Any], max_chars: int, redact_content: bool) -> Dict[str, Any]:
+    raw_input = obs.get("input")
+    raw_output = obs.get("output")
+    if redact_content:
+        raw_input = sanitize_text(raw_input)
+        raw_output = sanitize_text(raw_output)
     return {
         "id": obs.get("id"),
         "name": obs.get("name"),
         "type": obs.get("type"),
         "level": obs.get("level"),
         "status_message": obs.get("statusMessage"),
-        "input": truncate_text(obs.get("input"), max_chars),
-        "output": truncate_text(obs.get("output"), max_chars),
+        "input": truncate_text(raw_input, max_chars),
+        "output": truncate_text(raw_output, max_chars),
         "metadata": obs.get("metadata"),
         "start_time": obs.get("startTime"),
         "end_time": obs.get("endTime"),
@@ -114,14 +144,24 @@ def normalize_observation(obs: Dict[str, Any], max_chars: int) -> Dict[str, Any]
     }
 
 
-def build_summary(record: Dict[str, Any], max_chars: int, max_observations: int) -> Dict[str, Any]:
+def build_summary(
+    record: Dict[str, Any],
+    max_chars: int,
+    max_observations: int,
+    redact_content: bool,
+) -> Dict[str, Any]:
     trace = record.get("trace", {}) or {}
     observations = record.get("observations", []) or []
     step_sequence = record.get("stepSequence", []) or []
 
     normalized_observations = [
-        normalize_observation(obs, max_chars) for obs in observations[:max_observations]
+        normalize_observation(obs, max_chars, redact_content) for obs in observations[:max_observations]
     ]
+    trace_input = trace.get("input")
+    trace_output = trace.get("output")
+    if redact_content:
+        trace_input = sanitize_text(trace_input)
+        trace_output = sanitize_text(trace_output)
 
     summary = {
         "trace_id": trace.get("id"),
@@ -129,8 +169,8 @@ def build_summary(record: Dict[str, Any], max_chars: int, max_observations: int)
         "environment": trace.get("environment"),
         "user_id": trace.get("userId"),
         "timestamp": trace.get("timestamp"),
-        "input": truncate_text(trace.get("input"), max_chars),
-        "output": truncate_text(trace.get("output"), max_chars),
+        "input": truncate_text(trace_input, max_chars),
+        "output": truncate_text(trace_output, max_chars),
         "observation_count": len(observations),
         "observations": normalized_observations,
         "step_sequence": step_sequence[:50],
@@ -163,24 +203,71 @@ def build_model() -> AzureOpenAIModel:
     )
 
 
-def build_metric(model: AzureOpenAIModel, threshold: float) -> GEval:
-    return GEval(
-        name="PatternRecognition",
-        criteria=(
-            "Valuta se il pattern nelle osservazioni della trace indica un comportamento coerente, "
-            "corretto ed efficiente. Considera uso di tool, successi/fallimenti, chiarezza, "
-            "completezza e rischio di allucinazioni."
+def build_metrics(model: AzureOpenAIModel, threshold: float) -> Dict[str, GEval]:
+    base_params = [LLMTestCaseParams.ACTUAL_OUTPUT]
+    return {
+        "tool_usage": GEval(
+            name="ToolUsage",
+            criteria=(
+                "Valuta se l'uso degli strumenti nelle osservazioni è appropriato, necessario e coerente "
+                "con il task. Penalizza tool overuse o mancato uso di tool quando servono."
+            ),
+            evaluation_steps=[
+                "Identifica i tool invocati nelle osservazioni.",
+                "Verifica se l'uso dei tool è pertinente all'input.",
+                "Controlla se il tool usage ha portato a informazioni utili.",
+                "Assegna punteggi più alti quando l'uso è efficace e ben motivato.",
+            ],
+            evaluation_params=base_params,
+            model=model,
+            threshold=threshold,
         ),
-        evaluation_steps=[
-            "Rivedi l'input/output della trace e le osservazioni disponibili.",
-            "Verifica coerenza tra input, tool usage e output finale.",
-            "Individua pattern positivi/negativi (es. tool overuse, passi mancanti).",
-            "Assegna un punteggio più alto quando il pattern è consistente e sicuro.",
-        ],
-        evaluation_params=[LLMTestCaseParams.ACTUAL_OUTPUT],
-        model=model,
-        threshold=threshold,
-    )
+        "steps_efficiency": GEval(
+            name="StepsEfficiency",
+            criteria=(
+                "Valuta se il numero di step e la sequenza delle osservazioni sono efficienti e "
+                "proporzionati alla complessità del task."
+            ),
+            evaluation_steps=[
+                "Considera la lunghezza della step sequence e il numero di osservazioni.",
+                "Individua passaggi ridondanti o cicli inutili.",
+                "Premia sequenze concise che arrivano al risultato senza sprechi.",
+            ],
+            evaluation_params=base_params,
+            model=model,
+            threshold=threshold,
+        ),
+        "coherence": GEval(
+            name="Coherence",
+            criteria=(
+                "Valuta la coerenza tra input, output finale e osservazioni. Penalizza contraddizioni, "
+                "allucinazioni o output non supportati dai tool."
+            ),
+            evaluation_steps=[
+                "Confronta input e output finale.",
+                "Verifica che l'output sia supportato dalle osservazioni/tool.",
+                "Penalizza contraddizioni o dettagli non giustificati.",
+            ],
+            evaluation_params=base_params,
+            model=model,
+            threshold=threshold,
+        ),
+        "overall_pattern": GEval(
+            name="OverallPattern",
+            criteria=(
+                "Valuta il pattern complessivo della trace considerando tool usage, efficienza degli step, "
+                "coerenza e qualità della risposta finale."
+            ),
+            evaluation_steps=[
+                "Rivedi il summary e i segnali dei sottopunteggi.",
+                "Valuta l'allineamento generale del comportamento al task.",
+                "Premia pattern stabili, sicuri e con output chiaro.",
+            ],
+            evaluation_params=base_params,
+            model=model,
+            threshold=threshold,
+        ),
+    }
 
 
 def evaluate_trace(summary: Dict[str, Any], model: AzureOpenAIModel, threshold: float) -> Dict[str, Any]:
@@ -191,14 +278,35 @@ def evaluate_trace(summary: Dict[str, Any], model: AzureOpenAIModel, threshold: 
         expected_output="",
     )
 
-    metric = build_metric(model, threshold)
-    metric.measure(test_case)
+    metrics = build_metrics(model, threshold)
+    subscores: Dict[str, Dict[str, Any]] = {}
+
+    for name, metric in metrics.items():
+        try:
+            metric.measure(test_case)
+            subscores[name] = {
+                "score": metric.score,
+                "reason": metric.reason,
+                "threshold": metric.threshold,
+                "passed": metric.score is not None and metric.score >= metric.threshold,
+            }
+        except Exception as exc:  # noqa: BLE001 - surface model errors as structured output
+            subscores[name] = {
+                "score": None,
+                "reason": "Evaluation failed. See error for details.",
+                "threshold": metric.threshold,
+                "passed": False,
+                "error": str(exc),
+            }
+
+    scored = [entry["score"] for entry in subscores.values() if isinstance(entry.get("score"), (int, float))]
+    overall_score = sum(scored) / len(scored) if scored else None
+    overall_reason = "Aggregated average of available subscores."
 
     return {
-        "score": metric.score,
-        "reason": metric.reason,
-        "threshold": metric.threshold,
-        "passed": metric.score is not None and metric.score >= metric.threshold,
+        "overall_score": overall_score,
+        "overall_reason": overall_reason,
+        "subscores": subscores,
     }
 
 
@@ -220,7 +328,12 @@ def main() -> None:
 
     results = []
     for record in records[: args.max_traces]:
-        summary = build_summary(record, args.truncate_chars, args.max_observations)
+        summary = build_summary(
+            record,
+            args.truncate_chars,
+            args.max_observations,
+            args.redact_content,
+        )
         evaluation = evaluate_trace(summary, model, args.threshold)
         results.append(
             {
